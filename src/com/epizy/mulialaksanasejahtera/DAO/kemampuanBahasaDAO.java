@@ -1,6 +1,6 @@
 package com.epizy.mulialaksanasejahtera.DAO;
 
-import com.epizy.mulialaksanasejahtera.Entity.kemampuanBahasa;
+import com.epizy.mulialaksanasejahtera.Model.kemampuanBahasa;
 
 import java.util.List;
 

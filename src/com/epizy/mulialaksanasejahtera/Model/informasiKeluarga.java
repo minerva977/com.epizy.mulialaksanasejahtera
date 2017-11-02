@@ -1,4 +1,4 @@
-package com.epizy.mulialaksanasejahtera.Entity;
+package com.epizy.mulialaksanasejahtera.Model;
 
 public class informasiKeluarga {
     dataDiri dataDiri = new dataDiri();

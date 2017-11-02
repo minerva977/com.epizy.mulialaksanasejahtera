@@ -1,4 +1,4 @@
-package com.epizy.mulialaksanasejahtera.Entity;
+package com.epizy.mulialaksanasejahtera.Model;
 
 public class kemampuanBahasa {
     private dataDiri dataDiri = new dataDiri();

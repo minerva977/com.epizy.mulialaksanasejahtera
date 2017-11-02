@@ -1,8 +1,8 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.kemampuanBahasaDAO;
-import com.epizy.mulialaksanasejahtera.Entity.kemampuanBahasa;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
+import com.epizy.mulialaksanasejahtera.Model.kemampuanBahasa;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,10 +31,11 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(insert);
-            preparedStatement.setString(1,kemampuanBahasa.getInggris());
-            preparedStatement.setString(2,kemampuanBahasa.getMandarin());
-            preparedStatement.setString(3,kemampuanBahasa.getHokian());
-            preparedStatement.setString(4,kemampuanBahasa.getLain());
+            preparedStatement.setString(1,kemampuanBahasa.getNoRegistrasi());
+            preparedStatement.setString(2,kemampuanBahasa.getInggris());
+            preparedStatement.setString(3,kemampuanBahasa.getMandarin());
+            preparedStatement.setString(4,kemampuanBahasa.getHokian());
+            preparedStatement.setString(5,kemampuanBahasa.getLain());
             preparedStatement.executeUpdate();
         }catch (SQLException e) {
             e.printStackTrace();
@@ -52,7 +53,26 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
 
     @Override
     public void Update(kemampuanBahasa kemampuanBahasa) {
-
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(insert);
+            preparedStatement.setString(1,kemampuanBahasa.getInggris());
+            preparedStatement.setString(2,kemampuanBahasa.getMandarin());
+            preparedStatement.setString(3,kemampuanBahasa.getHokian());
+            preparedStatement.setString(4,kemampuanBahasa.getLain());
+            preparedStatement.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (connection != null) {
+                try {
+                    preparedStatement.close();
+                }catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override

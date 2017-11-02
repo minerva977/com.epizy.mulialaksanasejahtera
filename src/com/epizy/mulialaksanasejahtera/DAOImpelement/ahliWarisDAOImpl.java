@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.ahliWarisDAO;
-import com.epizy.mulialaksanasejahtera.Entity.ahliWaris;
+import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 
 import java.sql.Connection;

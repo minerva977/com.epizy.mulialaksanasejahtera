@@ -1,6 +1,6 @@
 package com.epizy.mulialaksanasejahtera.DAO;
 
-import com.epizy.mulialaksanasejahtera.Entity.kerja;
+import com.epizy.mulialaksanasejahtera.Model.kerja;
 
 import java.util.List;
 

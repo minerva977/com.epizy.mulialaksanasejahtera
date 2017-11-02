@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.akunDAO;
-import com.epizy.mulialaksanasejahtera.Entity.akun;
+import com.epizy.mulialaksanasejahtera.Model.akun;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 
 import java.sql.Connection;

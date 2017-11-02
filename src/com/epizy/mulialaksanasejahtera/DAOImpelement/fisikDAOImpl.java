@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.fisikDAO;
-import com.epizy.mulialaksanasejahtera.Entity.fisik;
+import com.epizy.mulialaksanasejahtera.Model.fisik;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 
 import java.sql.Connection;

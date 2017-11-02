@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.dataDiriDAO;
-import com.epizy.mulialaksanasejahtera.Entity.dataDiri;
+import com.epizy.mulialaksanasejahtera.Model.dataDiri;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 
 import java.sql.Connection;

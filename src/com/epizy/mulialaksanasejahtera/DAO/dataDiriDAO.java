@@ -1,6 +1,6 @@
 package com.epizy.mulialaksanasejahtera.DAO;
 
-import com.epizy.mulialaksanasejahtera.Entity.dataDiri;
+import com.epizy.mulialaksanasejahtera.Model.dataDiri;
 
 import java.util.List;
 

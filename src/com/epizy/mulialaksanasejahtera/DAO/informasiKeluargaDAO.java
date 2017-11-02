@@ -1,6 +1,6 @@
 package com.epizy.mulialaksanasejahtera.DAO;
 
-import com.epizy.mulialaksanasejahtera.Entity.informasiKeluarga;
+import com.epizy.mulialaksanasejahtera.Model.informasiKeluarga;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.informasiKeluargaDAO;
-import com.epizy.mulialaksanasejahtera.Entity.informasiKeluarga;
+import com.epizy.mulialaksanasejahtera.Model.informasiKeluarga;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 
 import java.sql.Connection;
