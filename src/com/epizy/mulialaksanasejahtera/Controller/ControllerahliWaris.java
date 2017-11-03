@@ -3,17 +3,17 @@ package com.epizy.mulialaksanasejahtera.Controller;
 import com.epizy.mulialaksanasejahtera.DAO.ahliWarisDAO;
 import com.epizy.mulialaksanasejahtera.DAOImpelement.ahliWarisDAOImpl;
 import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
-import com.epizy.mulialaksanasejahtera.TabelModel.TabelModelAhliWaris;
+import com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAhliWaris;
 
 import javax.swing.*;
 import java.util.List;
 
-public class ControllerahliWaris {
+public class controllerAhliWaris {
     JFrame jFrame;
     ahliWarisDAO ahliWarisDAO;
     List<ahliWaris> controllerahliWarisList;
 
-    public ControllerahliWaris(JFrame jFrame) {
+    public controllerAhliWaris(JFrame jFrame) {
         this.jFrame = jFrame;
         ahliWarisDAO = new ahliWarisDAOImpl();
         controllerahliWarisList = ahliWarisDAO.GetAll();
@@ -27,7 +27,7 @@ public class ControllerahliWaris {
 
     public void setTabel(JTable jTable) {
         controllerahliWarisList = ahliWarisDAO.GetAll();
-        TabelModelAhliWaris tabelModelAhliWaris = new TabelModelAhliWaris(controllerahliWarisList);
+        tabelModelAhliWaris tabelModelAhliWaris = new tabelModelAhliWaris(controllerahliWarisList);
         jTable.setModel(tabelModelAhliWaris);
     }
 
@@ -41,10 +41,10 @@ public class ControllerahliWaris {
         return controllerahliWarisList.get(Row).getNoRegistrasi();
     }
 
-    public void getAllDataFromTabel(int Row,JTextField NoRegistrasi,JTextField Nama,JTextField Hubungan) {
-        NoRegistrasi.setText(controllerahliWarisList.get(Row).getNoRegistrasi());
-        Nama.setText(controllerahliWarisList.get(Row).getNama());
-        Hubungan.setText(controllerahliWarisList.get(Row).getHubungan());
+    public void getAllDataFromTabel(int row,JTextField NoRegistrasi,JTextField Nama,JTextField Hubungan) {
+        NoRegistrasi.setText(controllerahliWarisList.get(row).getNoRegistrasi());
+        Nama.setText(controllerahliWarisList.get(row).getNama());
+        Hubungan.setText(controllerahliWarisList.get(row).getHubungan());
     }
 
     public void save(JTextField NoRegistrasi,JTextField Nama,JTextField Hubungan) {
@@ -63,31 +63,55 @@ public class ControllerahliWaris {
         ahliWarisDAO.Update(ahliWaris);
     }
 
-    public void delete(JTextField NoRegistrasi) {
-        if (NoRegistrasi.getText().trim().isEmpty()) {
-            ahliWarisDAO.Delete(NoRegistrasi.getText());
+    public void delete(JTextField NoRegistrasi,String type) {
+        if ("desktop".equals(type) || "Desktop".equals(type) || "DESKTOP".equals(type)) {
+            if (NoRegistrasi.getText().trim().isEmpty()) {
+                ahliWarisDAO.Delete(NoRegistrasi.getText());
+            }
+            else {
+                JOptionPane.showMessageDialog(
+                        null , "Maaf NoRegistrasi kosong mohon di isi"
+                        ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+                );
+            }
         }
         else {
-            JOptionPane.showMessageDialog(null , "Maaf NoRegistrasi kosong mohon di isi");
+            if (NoRegistrasi.getText().trim().isEmpty()) {
+                ahliWarisDAO.Delete(NoRegistrasi.getText());
+            }
+            else {
+                System.out.println("<script> alert('Maaf NoRegistrasi kosong mohon di isi'); </script>");
+            }
         }
     }
 
     public void search(JTable jTable,JTextField target) {
         controllerahliWarisList = ahliWarisDAO.GetDataByOject(target.getText());
-        TabelModelAhliWaris tabelModelAhliWaris = new TabelModelAhliWaris(controllerahliWarisList);
+        tabelModelAhliWaris tabelModelAhliWaris = new tabelModelAhliWaris(controllerahliWarisList);
         jTable.setModel(tabelModelAhliWaris);
     }
 
-    public void searchByObject(JTable jTable,JTextField target) {
-        if (!target.getText().trim().isEmpty()) {
-            ahliWarisDAO.GetDataByOject(target.getText());
-            search(jTable,target);
+    public void searchByObject(JTable jTable,JTextField target,String type) {
+        if ("desktop".equals(type) || "Desktop".equals(type) || "DESKTOP".equals(type)) {
+            if (!target.getText().trim().isEmpty()) {
+                ahliWarisDAO.GetDataByOject(target.getText());
+                search(jTable,target);
+            }
+            else {
+                JOptionPane.showMessageDialog(
+                        null, "Maaf Cari Kosong Mohon Di isi"
+                        ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+                );
+            }
         }
         else {
-            JOptionPane.showMessageDialog(
-                    null, "Maaf Cari Kosong Mohon Di isi"
-                    ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
-            );
+            if (!target.getText().trim().isEmpty()) {
+                ahliWarisDAO.GetDataByOject(target.getText());
+                search(jTable,target);
+            }
+            else {
+                System.out.println("<script> alert('Maaf NoRegistrasi kosong mohon di isi'); </script>");
+            }
         }
     }
 }

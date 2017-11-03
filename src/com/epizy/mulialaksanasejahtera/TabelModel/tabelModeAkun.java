@@ -1,15 +1,15 @@
 package com.epizy.mulialaksanasejahtera.TabelModel;
 
-import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
+import com.epizy.mulialaksanasejahtera.Model.akun;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class tabelModelAhliWaris extends AbstractTableModel {
-    List<ahliWaris> ahliWarisList;
+public class tabelModeAkun extends AbstractTableModel {
+    List<akun> akunList;
 
-    public tabelModelAhliWaris(List<ahliWaris> warisList) {
-        this.ahliWarisList = warisList;
+    public tabelModeAkun(List<akun> akuns) {
+        this.akunList = akuns;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class tabelModelAhliWaris extends AbstractTableModel {
     }
 
     public int getRowCount() {
-        return ahliWarisList.size();
+        return akunList.size();
     }
 
     @Override
@@ -27,9 +27,9 @@ public class tabelModelAhliWaris extends AbstractTableModel {
             case 0:
                 return "No Registrasi";
             case 1:
-                return "Nama";
+                return "Username";
             case 2:
-                return "Hubungan";
+                return "Passowrd";
             default:
                 return null;
         }
@@ -39,11 +39,11 @@ public class tabelModelAhliWaris extends AbstractTableModel {
     public Object getValueAt(int row, int column){
         switch (column){
             case 0:
-                return ahliWarisList.get(row).getNoRegistrasi();
+                return akunList.get(row).getNoRegistrasi();
             case 1:
-                return ahliWarisList.get(row).getNama();
+                return akunList.get(row).getNoRegistrasi();
             case 2:
-                return ahliWarisList.get(row).getHubungan();
+                return akunList.get(row).getNoRegistrasi();
             default:
                 return null;
         }
