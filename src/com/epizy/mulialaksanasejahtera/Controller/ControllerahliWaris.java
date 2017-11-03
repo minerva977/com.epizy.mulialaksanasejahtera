@@ -3,6 +3,7 @@ package com.epizy.mulialaksanasejahtera.Controller;
 import com.epizy.mulialaksanasejahtera.DAO.ahliWarisDAO;
 import com.epizy.mulialaksanasejahtera.DAOImpelement.ahliWarisDAOImpl;
 import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
+import com.epizy.mulialaksanasejahtera.TabelModel.TabelModelAhliWaris;
 
 import javax.swing.*;
 import java.util.List;
@@ -22,6 +23,18 @@ public class ControllerahliWaris {
         NoRegistrasi.setText("");
         Nama.setText("");
         Hubungan.setText("");
+    }
+
+    public void setTabel(JTable jTable) {
+        controllerahliWarisList = ahliWarisDAO.GetAll();
+        TabelModelAhliWaris tabelModelAhliWaris = new TabelModelAhliWaris(controllerahliWarisList);
+        jTable.setModel(tabelModelAhliWaris);
+    }
+
+    public void getToTabel(int row,JTextField NoRegistrasi,JTextField Nama,JTextField Hubungan) {
+        NoRegistrasi.setText(controllerahliWarisList.get(row).getNoRegistrasi());
+        Nama.setText(controllerahliWarisList.get(row).getNama());
+        Hubungan.setText(controllerahliWarisList.get(row).getHubungan());
     }
 
     public String getNoRegistrasiFromTabel(int Row) {
@@ -56,6 +69,25 @@ public class ControllerahliWaris {
         }
         else {
             JOptionPane.showMessageDialog(null , "Maaf NoRegistrasi kosong mohon di isi");
+        }
+    }
+
+    public void search(JTable jTable,JTextField target) {
+        controllerahliWarisList = ahliWarisDAO.GetDataByOject(target.getText());
+        TabelModelAhliWaris tabelModelAhliWaris = new TabelModelAhliWaris(controllerahliWarisList);
+        jTable.setModel(tabelModelAhliWaris);
+    }
+
+    public void searchByObject(JTable jTable,JTextField target) {
+        if (!target.getText().trim().isEmpty()) {
+            ahliWarisDAO.GetDataByOject(target.getText());
+            search(jTable,target);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                    null, "Maaf Cari Kosong Mohon Di isi"
+                    ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+            );
         }
     }
 }
