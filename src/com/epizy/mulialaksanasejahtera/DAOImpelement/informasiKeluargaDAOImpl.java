@@ -23,7 +23,7 @@ public class informasiKeluargaDAOImpl implements informasiKeluargaDAO {
     private final String delete = "DELETE FROM `informasi_keluarga` WHERE `no_reg`=?";
     private final String select = "SELECT * FROM `informasi_keluarga`";
     private final String selectWhere = "SELECT * FROM `informasi_keluarga` WHERE `no_reg`=? OR  `nama_bpk`=? OR " +
-            " `kerja_bpk`=? OR  `tempat_lhr_bpk`=? OR  `tgl_lhr_bpk`=? OR  `nama_ibuk`=? OR  `kerja_ibuk`=? OR" +
+            " `kerja_bpk`=? OR  `tempat_lhr_bpk`=? OR `tgl_lhr_bpk`=? OR  `nama_ibuk`=? OR  `kerja_ibuk`=? OR" +
             " `tempat_lhr_ibuk`=? OR `tgl_lhr_ibuk`=? OR  `nama_pasangan`=? OR  `kerja_pasangan`=? OR" +
             " `jml_anak`=? OR  `umur_anak`=? OR  `jml_sdr_laki`=? OR  `jml_sdr_perempuan`=? OR  `anak_ke`=?";
     private Connection connection;
