@@ -1,8 +1,8 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.ahliWarisDAO;
-import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
+import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -123,7 +123,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         List<ahliWaris> ahliWarisList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
-            preparedStatement = connection.prepareStatement(select);
+            preparedStatement = connection.prepareStatement(selectWhere);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.setString(2, String.valueOf(object));
             preparedStatement.setString(3, String.valueOf(object));
