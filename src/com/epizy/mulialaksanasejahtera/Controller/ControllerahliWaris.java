@@ -58,4 +58,6 @@ public class ControllerahliWaris {
             JOptionPane.showMessageDialog(null , "Maaf NoRegistrasi kosong mohon di isi");
         }
     }
+
+    
 }
