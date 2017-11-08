@@ -63,25 +63,16 @@ public class controllerAhliWaris {
         ahliWarisDAO.Update(ahliWaris);
     }
 
-    public void delete(JTextField NoRegistrasi,String type) {
-        if ("desktop".equals(type) || "Desktop".equals(type) || "DESKTOP".equals(type)) {
-            if (NoRegistrasi.getText().trim().isEmpty()) {
-                ahliWarisDAO.Delete(NoRegistrasi.getText());
-            }
-            else {
-                JOptionPane.showMessageDialog(
-                        null , "Maaf NoRegistrasi kosong mohon di isi"
-                        ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
-                );
-            }
+    public void delete(JTextField NoRegistrasi) {
+        if (NoRegistrasi.getText().trim().isEmpty()) {
+            ahliWarisDAO.Delete(NoRegistrasi.getText());
         }
         else {
-            if (NoRegistrasi.getText().trim().isEmpty()) {
-                ahliWarisDAO.Delete(NoRegistrasi.getText());
-            }
-            else {
-                System.out.println("<script> alert('Maaf NoRegistrasi kosong mohon di isi'); </script>");
-            }
+            JOptionPane.showMessageDialog(
+                    null , "Maaf NoRegistrasi kosong mohon di isi"
+                    ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+            );
+            NoRegistrasi.requestFocus();
         }
     }
 
@@ -91,27 +82,16 @@ public class controllerAhliWaris {
         jTable.setModel(tabelModelAhliWaris);
     }
 
-    public void searchByObject(JTable jTable,JTextField target,String type) {
-        if ("desktop".equals(type) || "Desktop".equals(type) || "DESKTOP".equals(type)) {
-            if (!target.getText().trim().isEmpty()) {
-                ahliWarisDAO.GetDataByOject(target.getText());
-                search(jTable,target);
-            }
-            else {
-                JOptionPane.showMessageDialog(
-                        null, "Maaf Cari Kosong Mohon Di isi"
-                        ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
-                );
-            }
+    public void searchByObject(JTable jTable,JTextField target) {
+        if (!target.getText().trim().isEmpty()) {
+            search(jTable,target);
         }
         else {
-            if (!target.getText().trim().isEmpty()) {
-                ahliWarisDAO.GetDataByOject(target.getText());
-                search(jTable,target);
-            }
-            else {
-                System.out.println("<script> alert('Maaf NoRegistrasi kosong mohon di isi'); </script>");
-            }
+            JOptionPane.showMessageDialog(
+                    null, "Maaf Cari Kosong Mohon Di isi"
+                    ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+            );
+            target.requestFocus();
         }
     }
 }

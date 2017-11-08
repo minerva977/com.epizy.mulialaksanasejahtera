@@ -3,7 +3,7 @@ package com.epizy.mulialaksanasejahtera.Controller;
 import com.epizy.mulialaksanasejahtera.DAO.akunDAO;
 import com.epizy.mulialaksanasejahtera.DAOImpelement.akunDAOImpl;
 import com.epizy.mulialaksanasejahtera.Model.akun;
-import com.epizy.mulialaksanasejahtera.TabelModel.tabelModeAkun;
+import com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAkun;
 
 import javax.swing.*;
 import java.util.List;
@@ -27,8 +27,8 @@ public class controllerAkun {
 
     public void setTabel(JTable jTable) {
         akunList = akunDAO.GetAll();
-        tabelModeAkun tabelModeAkun = new tabelModeAkun(akunList);
-        jTable.setModel(tabelModeAkun);
+        tabelModelAkun tabelModelAkun = new tabelModelAkun(akunList);
+        jTable.setModel(tabelModelAkun);
     }
 
     public void getToTabel(int row,JTextField NoRegistrasi,JTextField Username,JTextField Password) {
@@ -47,7 +47,50 @@ public class controllerAkun {
         Passowrd.setText(akunList.get(row).getPassword());
     }
     public void save(JTextField NoRegistrasi,JTextField Username,JTextField Passowrd) {
+        akun akun = new akun();
+        akun.setNoRegistrasi(NoRegistrasi.getText());
+        akun.setUsername(Username.getText());
+        akun.setPassword(Passowrd.getText());
+        akunDAO.Save(akun);
+    }
 
-        
+    public void update(JTextField NoRegistrasi,JTextField Username,JTextField Passowrd) {
+        akun akun = new akun();
+        akun.setNoRegistrasi(NoRegistrasi.getText());
+        akun.setUsername(Username.getText());
+        akun.setPassword(Passowrd.getText());
+        akunDAO.Update(akun);
+    }
+
+    public void delete(JTextField NoRegistrasi) {
+        if (!NoRegistrasi.getText().trim().isEmpty()) {
+            akunDAO.Delete(NoRegistrasi.getText());
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                    null , "Maaf NoRegistrasi kosong mohon di isi"
+                    ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+            );
+            NoRegistrasi.requestFocus();
+        }
+    }
+
+    public void search(JTable jTable,JTextField target) {
+        akunList = akunDAO.GetDataByOject(target.getText());
+        tabelModelAkun tabelModelAkun = new tabelModelAkun(akunList);
+        jTable.setModel(tabelModelAkun);
+    }
+
+    public void serchByObject(JTable jTable,JTextField target) {
+        if (!target.getText().trim().isEmpty()) {
+            search(jTable,target);
+        }
+        else {
+            JOptionPane.showMessageDialog(
+                    null, "Maaf Cari Kosong Mohon Di isi"
+                    ,"Peringatan !!" ,JOptionPane.WARNING_MESSAGE
+            );
+            target.requestFocus();
+        }
     }
 }

@@ -5,10 +5,10 @@ import com.epizy.mulialaksanasejahtera.Model.akun;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class tabelModeAkun extends AbstractTableModel {
+public class tabelModelAkun extends AbstractTableModel {
     List<akun> akunList;
 
-    public tabelModeAkun(List<akun> akuns) {
+    public tabelModelAkun(List<akun> akuns) {
         this.akunList = akuns;
     }
 
