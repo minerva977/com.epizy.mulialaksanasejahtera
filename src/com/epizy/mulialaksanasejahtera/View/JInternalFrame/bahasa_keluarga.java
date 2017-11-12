@@ -6,6 +6,8 @@
 package com.epizy.mulialaksanasejahtera.View.JInternalFrame;
 
 import com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris;
+import com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga;
+import com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa;
 import mv.lib.BuildDB.CodeDataBase;
 import mv.lib.ProsesDB.GetDataFromDB;
 import mv.lib.ProsesDB.InputToDB;
@@ -218,6 +220,8 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
     }
     void input(){
         controllerAhliWaris controllerAhliWaris = new controllerAhliWaris(this);
+        controllerInformasiKeluarga controllerInformasiKeluarga = new controllerInformasiKeluarga(this);
+        controllerKemampuanBahasa controllerKemampuanBahasa = new controllerKemampuanBahasa(this);
         SimpleDateFormat sdf=new SimpleDateFormat("dd-MMMM-yyyy");
         String b1,b2,b3,b4,tgl_bpk,tgl_ibuk;
         tgl_bpk=sdf.format(tgl_ayah.getDate());
@@ -226,15 +230,8 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
         b2=bhs2();
         b3=bhs3();
         b4=bhs4();
-        itdb.input("kemampuan_bahasa", "no_reg", par
-                , "no_reg", "bhs_inggris", "bhs_mandarin", "bhs_hokian", "bhs_hokka", "bhs_lain"
-                , par, b1, b2, b3, b4, bahasa_lain.getText());
-        itdb.input("informasi_keluarga", "no_reg", par
-                , "no_reg", "nama_bpk", "kerja_bpk", "tempat_lhr_bpk"
-                , "tgl_lhr_bpk", "nama_ibuk", "kerja_ibuk", "tempat_lhr_ibuk"
-                , "tgl_lhr_ibuk", "nama_pasangan", "kerja_pasangan", "jml_anak"
-                , "umur_anak", "jml_sdr_laki", "jml_sdr_perempuan", "anak_ke"
-                , par, nama_ayah.getText(), kerja_ayah.getText(), lahir_ayah.getText()
+        controllerKemampuanBahasa.save(par, b1, b2, b3, b4, bahasa_lain.getText());
+        controllerInformasiKeluarga.save(par, nama_ayah.getText(), kerja_ayah.getText(), lahir_ayah.getText()
                 , tgl_bpk, nama_ibu.getText(), kerja_ibu.getText(), lahir_ibu.getText()
                 , tgl_ibuk, nama_sum_is.getText(), kerja_sum_is.getText(), jum_anak.getText()
                 , umur_anak.getText(), so_laki.getText(), so_cewek.getText(), anak_ke.getText());

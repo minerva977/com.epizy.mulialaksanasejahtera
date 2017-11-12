@@ -55,7 +55,29 @@ public class informasiKeluargaDAOImpl implements informasiKeluargaDAO {
             preparedStatement.setString(16,informasiKeluarga.getAnakKe());
             preparedStatement.executeUpdate();
         }catch (SQLException e) {
-            e.printStackTrace();
+            try {
+                preparedStatement = connection.prepareStatement(update);
+                preparedStatement.setString(1,informasiKeluarga.getNoRegistrasi());
+                preparedStatement.setString(2,informasiKeluarga.getNamaBapak());
+                preparedStatement.setString(3,informasiKeluarga.getKerjaBapak());
+                preparedStatement.setString(4,informasiKeluarga.getTempatLahirBapak());
+                preparedStatement.setString(5,informasiKeluarga.getTanggalLahirBapak());
+                preparedStatement.setString(6,informasiKeluarga.getNamaIbu());
+                preparedStatement.setString(7,informasiKeluarga.getKerjaIbu());
+                preparedStatement.setString(8,informasiKeluarga.getTanggalLahirIbu());
+                preparedStatement.setString(9,informasiKeluarga.getTanggalLahirIbu());
+                preparedStatement.setString(10,informasiKeluarga.getNamaPasangan());
+                preparedStatement.setString(11,informasiKeluarga.getKerjaPasagan());
+                preparedStatement.setString(12,informasiKeluarga.getJumlahAnak());
+                preparedStatement.setString(13,informasiKeluarga.getUmurAnak());
+                preparedStatement.setString(14,informasiKeluarga.getJumlahSodaraLakiLaki());
+                preparedStatement.setString(15,informasiKeluarga.getJumlahSodaraPerempuan());
+                preparedStatement.setString(16,informasiKeluarga.getAnakKe());
+                preparedStatement.executeUpdate();
+            }catch (SQLException ex) {
+                e.printStackTrace();
+                ex.printStackTrace();
+            }
         }
         finally {
             if (connection != null) {
@@ -68,41 +90,6 @@ public class informasiKeluargaDAOImpl implements informasiKeluargaDAO {
         }
     }
 
-    @Override
-    public void Update(informasiKeluarga informasiKeluarga) {
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(update);
-            preparedStatement.setString(1,informasiKeluarga.getNoRegistrasi());
-            preparedStatement.setString(2,informasiKeluarga.getNamaBapak());
-            preparedStatement.setString(3,informasiKeluarga.getKerjaBapak());
-            preparedStatement.setString(4,informasiKeluarga.getTempatLahirBapak());
-            preparedStatement.setString(5,informasiKeluarga.getTanggalLahirBapak());
-            preparedStatement.setString(6,informasiKeluarga.getNamaIbu());
-            preparedStatement.setString(7,informasiKeluarga.getKerjaIbu());
-            preparedStatement.setString(8,informasiKeluarga.getTanggalLahirIbu());
-            preparedStatement.setString(9,informasiKeluarga.getTanggalLahirIbu());
-            preparedStatement.setString(10,informasiKeluarga.getNamaPasangan());
-            preparedStatement.setString(11,informasiKeluarga.getKerjaPasagan());
-            preparedStatement.setString(12,informasiKeluarga.getJumlahAnak());
-            preparedStatement.setString(13,informasiKeluarga.getUmurAnak());
-            preparedStatement.setString(14,informasiKeluarga.getJumlahSodaraLakiLaki());
-            preparedStatement.setString(15,informasiKeluarga.getJumlahSodaraPerempuan());
-            preparedStatement.setString(16,informasiKeluarga.getAnakKe());
-            preparedStatement.executeUpdate();
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if (connection != null) {
-                try {
-                    preparedStatement.close();
-                }catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-    }
-    }
     @Override
     public void Delete(Object object) {    PreparedStatement preparedStatement = null;
         try {

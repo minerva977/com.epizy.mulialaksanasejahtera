@@ -17,7 +17,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
     private final String delete = "DELETE FROM `ahli_waris` WHERE `no_reg`=?";
     private final String select = "SELECT * FROM `ahli_waris`";
     private final String selectWhere = "SELECT * FROM `ahli_waris` " +
-            "WHERE `no_reg` LIKE %?% OR `nama_alhi` LIKE %?% OR `hubungan` LIKE %?%";
+            "WHERE `no_reg` LIKE ? OR `nama_alhi` LIKE ? OR `hubungan` LIKE ?";
     private Connection connection;
     public  ahliWarisDAOImpl(){
         connection = dataBaseConncetionFactory.getConnection();
@@ -32,7 +32,16 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
             preparedStatement.setString(3,ahliWaris.getHubungan());
             preparedStatement.executeUpdate();
         }catch (SQLException e) {
-            e.printStackTrace();
+            try {
+                preparedStatement = connection.prepareStatement(update);
+                preparedStatement.setString(1,ahliWaris.getNama());
+                preparedStatement.setString(2,ahliWaris.getHubungan());
+                preparedStatement.setString(3,ahliWaris.getNoRegistrasi());
+                preparedStatement.executeUpdate();
+            }catch (SQLException ex) {
+                e.printStackTrace();
+                ex.printStackTrace();
+            }
         }
         finally {
             if(connection != null) {
@@ -44,30 +53,6 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
             }
         }
     }
-
-    @Override
-    public void Update(ahliWaris ahliWaris) {
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(update);
-            preparedStatement.setString(1,ahliWaris.getNama());
-            preparedStatement.setString(2,ahliWaris.getHubungan());
-            preparedStatement.setString(3,ahliWaris.getNoRegistrasi());
-            preparedStatement.executeUpdate();
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if(connection != null) {
-                try {
-                    preparedStatement.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
     @Override
     public void Delete(Object object) {
         PreparedStatement preparedStatement = null;

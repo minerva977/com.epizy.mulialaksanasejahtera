@@ -22,7 +22,7 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
             "`no_reg`=?";
     private final String delete = "DELETE FROM `kemampuan_bahasa` WHERE `no_reg`=?";
     private final String select = "SELECT * FROM `kemampuan_bahasa`";
-    private final String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE %?% OR `username` LIKE %?% OR `username` LIKE %?%";
+    private final String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE ? OR `username` LIKE ? OR `username` LIKE ?";
     private Connection connection;
 
     public kemampuanBahasaDAOImpl() {
@@ -40,30 +40,17 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
             preparedStatement.setString(5,kemampuanBahasa.getLain());
             preparedStatement.executeUpdate();
         }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if (connection != null) {
-                try {
-                    preparedStatement.close();
-                }catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            try {
+                preparedStatement = connection.prepareStatement(update);
+                preparedStatement.setString(1,kemampuanBahasa.getInggris());
+                preparedStatement.setString(2,kemampuanBahasa.getMandarin());
+                preparedStatement.setString(3,kemampuanBahasa.getHokian());
+                preparedStatement.setString(4,kemampuanBahasa.getLain());
+                preparedStatement.executeUpdate();
+            }catch (SQLException ex) {
+                e.printStackTrace();
+                ex.printStackTrace();
             }
-        }
-    }
-
-    @Override
-    public void Update(kemampuanBahasa kemampuanBahasa) {
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(update);
-            preparedStatement.setString(1,kemampuanBahasa.getInggris());
-            preparedStatement.setString(2,kemampuanBahasa.getMandarin());
-            preparedStatement.setString(3,kemampuanBahasa.getHokian());
-            preparedStatement.setString(4,kemampuanBahasa.getLain());
-            preparedStatement.executeUpdate();
-        }catch (SQLException e) {
             e.printStackTrace();
         }
         finally {

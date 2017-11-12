@@ -6,10 +6,14 @@
 package com.epizy.mulialaksanasejahtera.View.JInternalFrame;
 
 import com.epizy.mulialaksanasejahtera.Controller.controllerConfig;
+import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 import mv.lib.ProsesDB.GetDataFromDB;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import java.awt.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -30,36 +34,43 @@ public class data_diri extends javax.swing.JInternalFrame {
         grabdata(parameter);
     }
     private void grabdata(String par){
-        String sql="no_reg = '"+par+"'";
-        String url;
-        kelamin.setText(gdfdb.setOneDataFromDB("data_pribadi", "`kelamin`", sql));
-        no_ktp.setText(gdfdb.setOneDataFromDB("data_pribadi", "`no_ktp`", sql));
-        tempat_ktp.setText(gdfdb.setOneDataFromDB("data_pribadi", "`tempat_ktp_dibuat`", sql));
-        tgl_ktp.setText(gdfdb.setOneDataFromDB("data_pribadi", "`tgl_ktp_dibuat`", sql));
-        nama.setText("Data Diri Dari : "+gdfdb.setOneDataFromDB("data_pribadi", "`nama`", sql));
-        usia.setText(gdfdb.setOneDataFromDB("data_pribadi", "`usia`", sql));
-        alamat.setText(gdfdb.setOneDataFromDB("data_pribadi", "`alamat`", sql));
-        desa_kel.setText(gdfdb.setOneDataFromDB("data_pribadi", "`desa/kel`", sql));
-        kecamatan.setText(gdfdb.setOneDataFromDB("data_pribadi", "`kecamatan`", sql));
-        kab_kota.setText(gdfdb.setOneDataFromDB("data_pribadi", "`kab/kota`", sql));
-        propinsi.setText(gdfdb.setOneDataFromDB("data_pribadi", "`propinsi`", sql));
-        tempat_lahir.setText(gdfdb.setOneDataFromDB("data_pribadi", "`tempat_lahir`", sql));
-        tgl_lahir.setText(gdfdb.setOneDataFromDB("data_pribadi", "`tgl_lahir`", sql));
-        no_tlp.setText(gdfdb.setOneDataFromDB("data_pribadi", "`no_tlpn`", sql));
-        no_hp.setText(gdfdb.setOneDataFromDB("data_pribadi", "`no_hp/flexy`", sql));
-        tinggi.setText(gdfdb.setOneDataFromDB("data_pribadi", "`tinggi_badan`", sql));
-        berat.setText(gdfdb.setOneDataFromDB("data_pribadi", "`berat_badan`", sql));
-        setatus.setText(gdfdb.setOneDataFromDB("data_pribadi", "`setatus`", sql));
-        tgl_setatus.setText(gdfdb.setOneDataFromDB("data_pribadi", "`tgl_setatus`", sql));
-        pendidikan.setText(gdfdb.setOneDataFromDB("data_pribadi", "`pendidikan`", sql));
-        agama.setText(gdfdb.setOneDataFromDB("data_pribadi", "`agama`", sql));
-        ket.setText(gdfdb.setOneDataFromDB("data_pribadi", "`keterampilan_kusus`", sql));
-        email.setText(gdfdb.setOneDataFromDB("data_pribadi", "`email`", sql));
-        
-        url=gdfdb.setOneDataFromDB("data_pribadi", "foto", sql);
-        jPanel2.setMaximumSize(new Dimension(1000,200));
-        jPanel2.setMinimumSize(new Dimension(1000,200));
-        config.getIamge(url, gambar);
+        String sql = "SELECT * FROM `data_pribadi` WHERE `no_reg` LIKE ?";
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = dataBaseConncetionFactory.getConnection().prepareStatement(sql);
+            preparedStatement.setString(1,par);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                kelamin.setText(resultSet.getString(3));
+                no_ktp.setText(resultSet.getString(5));
+                tempat_ktp.setText(resultSet.getString(6));
+                tgl_ktp.setText(resultSet.getString(7));
+                nama.setText("Data Diri Dari : "+resultSet.getString(8));
+                usia.setText(resultSet.getString(9));
+                alamat.setText(resultSet.getString(10));
+                desa_kel.setText(resultSet.getString(11));
+                kecamatan.setText(resultSet.getString(12));
+                kab_kota.setText(resultSet.getString(13));
+                propinsi.setText(resultSet.getString(14));
+                tempat_lahir.setText(resultSet.getString(15));
+                tgl_lahir.setText(resultSet.getString(16));
+                no_tlp.setText(resultSet.getString(17));
+                no_hp.setText(resultSet.getString(18));
+                tinggi.setText(resultSet.getString(19));
+                berat.setText(resultSet.getString(20));
+                setatus.setText(resultSet.getString(21));
+                tgl_setatus.setText(resultSet.getString(22));
+                pendidikan.setText(resultSet.getString(23));
+                agama.setText(resultSet.getString(24));
+                jPanel2.setMaximumSize(new Dimension(1000,200));
+                jPanel2.setMinimumSize(new Dimension(1000,200));
+                config.getIamge(resultSet.getString(25), gambar);
+                email.setText(resultSet.getString(26));
+                ket.setText(resultSet.getString(27));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

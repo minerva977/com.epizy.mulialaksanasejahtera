@@ -61,14 +61,6 @@ public class controllerAhliWaris {
         ahliWarisDAO.Save(ahliWaris);
     }
 
-    public void update(JTextField NoRegistrasi,JTextField Nama,JTextField Hubungan) {
-        ahliWaris ahliWaris = new ahliWaris();
-        ahliWaris.setNoRegistrasi(NoRegistrasi.getText());
-        ahliWaris.setNama(Nama.getText());
-        ahliWaris.setHubungan(Hubungan.getText());
-        ahliWarisDAO.Update(ahliWaris);
-    }
-
     public void delete(JTextField NoRegistrasi) {
         if (NoRegistrasi.getText().trim().isEmpty()) {
             ahliWarisDAO.Delete(NoRegistrasi.getText());

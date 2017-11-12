@@ -1,8 +1,8 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.fisikDAO;
-import com.epizy.mulialaksanasejahtera.Model.fisik;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
+import com.epizy.mulialaksanasejahtera.Model.fisik;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,9 +31,9 @@ public class fisikDAOImpl implements fisikDAO {
             "FROM \n" +
             "`fisik` \n" +
             "WHERE \n" +
-            "`no_reg` LIKE %?% OR `merokok` LIKE %?% OR `merokok_ket` LIKE %?% OR `alkohol` LIKE %?% OR `alkohol_ket` LIKE %?% \n" +
-            "OR `tato` LIKE %?% OR `tato_ket` LIKE %?% OR `buta_warna` LIKE %?% OR `buta_warna_ket` LIKE %?% \n" +
-            "OR `rabun` LIKE %?% OR `rabun_ket` LIKE %?% OR `alergi` LIKE %?% OR `alergi_ket` LIKE %?%";
+            "`no_reg` LIKE ? OR `merokok` LIKE ? OR `merokok_ket` LIKE ? OR `alkohol` LIKE ? OR `alkohol_ket` LIKE ? \n" +
+            "OR `tato` LIKE ? OR `tato_ket` LIKE ? OR `buta_warna` LIKE ? OR `buta_warna_ket` LIKE ? \n" +
+            "OR `rabun` LIKE ? OR `rabun_ket` LIKE ? OR `alergi` LIKE ? OR `alergi_ket` LIKE ?";
     private Connection connection;
 
     public fisikDAOImpl() {

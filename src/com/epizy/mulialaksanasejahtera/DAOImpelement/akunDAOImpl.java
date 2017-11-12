@@ -1,8 +1,8 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.akunDAO;
-import com.epizy.mulialaksanasejahtera.Model.akun;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
+import com.epizy.mulialaksanasejahtera.Model.akun;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +16,7 @@ public class akunDAOImpl implements akunDAO {
     private final String update = "UPDATE `akun` SET `username`=?,`password`=? WHERE `no_reg`=?";
     private final String delete = "DELETE FROM `akun` WHERE `no_reg`=?";
     private final String select = "SELECT * FROM `akun`";
-    private final String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE %?% OR `username` LIKE %?% OR `username` LIKE %?%";
+    private final String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE ? OR `username` LIKE ? OR `username` LIKE ?";
     private Connection connection;
 
     public akunDAOImpl(){

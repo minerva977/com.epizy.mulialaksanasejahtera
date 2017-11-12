@@ -1,8 +1,8 @@
 package com.epizy.mulialaksanasejahtera.DAOImpelement;
 
 import com.epizy.mulialaksanasejahtera.DAO.dataDiriDAO;
-import com.epizy.mulialaksanasejahtera.Model.dataDiri;
 import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
+import com.epizy.mulialaksanasejahtera.Model.dataDiri;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,12 +42,12 @@ public class dataDiriDAOImpl implements dataDiriDAO {
             "FROM\n" +
             "`data_pribadi` \n" +
             "WHERE\n" +
-            "`no_reg` like %?% OR `tgl` like %?% OR `kelamin` like %?% OR `pot_gaji` like %?% OR `no_ktp` like %?% OR\n" +
-            "`tempat_ktp_dibuat` like %?% OR `tgl_ktp_dibuat` like %?% OR `nama` like %?% OR `usia` like %?% OR `alamat` like %?% OR\n" +
-            "`desa/kel` like %?% OR `kecamatan` like %?% OR `kab/kota` like %?% OR `propinsi` like %?% OR `tempat_lahir` like %?% OR\n" +
-            "`tgl_lahir` like %?% OR `no_tlpn` like %?% OR `no_hp/flexy` like %?% OR `tinggi_badan` like %?% OR `berat_badan` like %?% OR\n"+
-            "`setatus` like %?% OR `tgl_setatus` like %?% OR `pendidikan` like %?% OR `agama` like %?% OR `foto` like %?% OR\n" +
-            "`email` like %?% OR `keterampilan_kusus` like %?%";
+            "`no_reg` like ? OR `tgl` like ? OR `kelamin` like ? OR `pot_gaji` like ? OR `no_ktp` like ? OR\n" +
+            "`tempat_ktp_dibuat` like ? OR `tgl_ktp_dibuat` like ? OR `nama` like ? OR `usia` like ? OR `alamat` like ? OR\n" +
+            "`desa/kel` like ? OR `kecamatan` like ? OR `kab/kota` like ? OR `propinsi` like ? OR `tempat_lahir` like ? OR\n" +
+            "`tgl_lahir` like ? OR `no_tlpn` like ? OR `no_hp/flexy` like ? OR `tinggi_badan` like ? OR `berat_badan` like ? OR\n"+
+            "`setatus` like ? OR `tgl_setatus` like ? OR `pendidikan` like ? OR `agama` like ? OR `foto` like ? OR\n" +
+            "`email` like ? OR `keterampilan_kusus` like ?";
     private Connection connection;
 
     public dataDiriDAOImpl(){
