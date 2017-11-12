@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MinvervaLib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../MinvervaLib/dist/MinvervaLib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

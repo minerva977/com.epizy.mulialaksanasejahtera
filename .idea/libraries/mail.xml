@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="mail">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Plugin Java/commons-email-1.5/commons-email-1.5-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Plugin Java/commons-email-1.5/commons-email-1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Plugin Java/commons-email-1.5/commons-email-1.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Plugin Java/commons-email-1.5/commons-email-1.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Plugin Java/commons-email-1.5/commons-email-1.5-test-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

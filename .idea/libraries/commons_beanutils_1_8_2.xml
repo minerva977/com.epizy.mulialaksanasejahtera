@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-beanutils-1.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-collections-3.2.1-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-digester-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-email-1.5-tests.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-email-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-javaflow.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-logging-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-email-1.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-email-1.5-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../mulia_laksana_sejatra_desktop/dist/lib/commons-email-1.5-test-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

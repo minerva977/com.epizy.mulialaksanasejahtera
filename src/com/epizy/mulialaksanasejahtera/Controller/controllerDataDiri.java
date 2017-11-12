@@ -10,11 +10,17 @@ import java.util.List;
 
 public class controllerDataDiri {
     JFrame jFrame;
+    JInternalFrame jInternalFrame;
     dataDiriDAO dataDiriDAO;
     List<dataDiri> dataDiriList;
 
     public controllerDataDiri(JFrame jFrames) {
         this.jFrame = jFrames;
+        dataDiriDAO = new dataDiriDAOImpl();
+        dataDiriList = dataDiriDAO.GetAll();
+    }
+    public controllerDataDiri(JInternalFrame jInternalFrame) {
+        this.jInternalFrame = jInternalFrame;
         dataDiriDAO = new dataDiriDAOImpl();
         dataDiriList = dataDiriDAO.GetAll();
     }

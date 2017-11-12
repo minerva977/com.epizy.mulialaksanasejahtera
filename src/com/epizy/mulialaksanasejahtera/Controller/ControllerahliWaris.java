@@ -10,11 +10,17 @@ import java.util.List;
 
 public class controllerAhliWaris {
     JFrame jFrame;
+    JInternalFrame jInternalFrame;
     ahliWarisDAO ahliWarisDAO;
     List<ahliWaris> controllerahliWarisList;
 
     public controllerAhliWaris(JFrame jFrame) {
         this.jFrame = jFrame;
+        ahliWarisDAO = new ahliWarisDAOImpl();
+        controllerahliWarisList = ahliWarisDAO.GetAll();
+    }
+    public controllerAhliWaris(JInternalFrame jInternalFrame) {
+        this.jInternalFrame = jInternalFrame;
         ahliWarisDAO = new ahliWarisDAOImpl();
         controllerahliWarisList = ahliWarisDAO.GetAll();
     }
@@ -47,11 +53,11 @@ public class controllerAhliWaris {
         Hubungan.setText(controllerahliWarisList.get(row).getHubungan());
     }
 
-    public void save(JTextField NoRegistrasi,JTextField Nama,JTextField Hubungan) {
+    public void save(Object NoRegistrasi,Object Nama,Object Hubungan) {
         ahliWaris ahliWaris = new ahliWaris();
-        ahliWaris.setNoRegistrasi(NoRegistrasi.getText());
-        ahliWaris.setNama(Nama.getText());
-        ahliWaris.setHubungan(Hubungan.getText());
+        ahliWaris.setNoRegistrasi(String.valueOf(NoRegistrasi));
+        ahliWaris.setNama(String.valueOf(Nama));
+        ahliWaris.setHubungan(String.valueOf(Hubungan));
         ahliWarisDAO.Save(ahliWaris);
     }
 
