@@ -29,4 +29,5 @@ public class kerja {
     public void setKeterampilan(String keterampilan) {
         Keterampilan = keterampilan;
     }
+
 }

@@ -6,7 +6,6 @@
 package com.epizy.mulialaksanasejahtera.DAO;
 
 import javax.swing.*;
-import java.util.List;
 
 /**
  *
@@ -14,5 +13,5 @@ import java.util.List;
  */
 public interface configDAO {
     public void getImageFormWeb(String Name,JLabel jLabel);
-    public void SendEmail(List<Object> listObjects);
+    public void SendEmail(String[] Object);
 }

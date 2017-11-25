@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.Controller;
 
 import com.epizy.mulialaksanasejahtera.DAO.akunDAO;
-import com.epizy.mulialaksanasejahtera.DAOImpelement.akunDAOImpl;
+import com.epizy.mulialaksanasejahtera.DAOImpl.akunDAOImpl;
 import com.epizy.mulialaksanasejahtera.Model.akun;
 import com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAkun;
 

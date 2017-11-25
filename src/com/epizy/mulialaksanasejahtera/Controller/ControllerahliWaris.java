@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.Controller;
 
 import com.epizy.mulialaksanasejahtera.DAO.ahliWarisDAO;
-import com.epizy.mulialaksanasejahtera.DAOImpelement.ahliWarisDAOImpl;
+import com.epizy.mulialaksanasejahtera.DAOImpl.ahliWarisDAOImpl;
 import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
 import com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAhliWaris;
 

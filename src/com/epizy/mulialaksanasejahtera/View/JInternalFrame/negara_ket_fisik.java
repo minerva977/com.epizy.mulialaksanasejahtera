@@ -5,7 +5,15 @@
  */
 package com.epizy.mulialaksanasejahtera.View.JInternalFrame;
 
+import com.epizy.mulialaksanasejahtera.Controller.controllerFisik;
+import com.epizy.mulialaksanasejahtera.Controller.controllerKerja;
+import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
+
+import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,10 +24,226 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     /**
      * Creates new form negara_ket_fisik
      */
+    private String par = interview.parameter;
     public negara_ket_fisik() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
         initComponents();
+        jLabel1.setText("Tujuan Dan Data Fisik Dengan Nomer Registrasi : "+par);
+        clr();
+        setNegara();
+    }
+    
+    private void clr () {
+        keterampilan.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        String sql = "SELECT kerja.*, fisik.* "
+                + "FROM kerja, fisik "
+                + "WHERE kerja.no_reg = '"+par+"' AND fisik.no_reg = '"+par+"'";
+        PreparedStatement preparedStatement = null;
+        try {
+            
+            preparedStatement = dataBaseConncetionFactory.getConnection().prepareCall(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            while (resultSet.next()) {
+                
+                negara.setSelectedItem(resultSet.getString(2));
+                keterampilan.setText(resultSet.getString(3));
+                
+                if ("YA".equals(resultSet.getString(5))) {
+                    rokok.setSelected(true);
+                }
+                else {
+                    rokok2.setSelected(true);
+                }
+                
+                jTextField1.setText(resultSet.getString(6));
+                
+                if ("YA".equals(resultSet.getString(7))) {
+                    keras.setSelected(true);
+                }
+                else {
+                    keras2.setSelected(true);
+                }
+                
+                jTextField2.setText(resultSet.getString(8));
+                
+                if ("YA".equals(resultSet.getString(9))) {
+                    tato.setSelected(true);
+                }
+                else {
+                    tato2.setSelected(true);
+                }
+                
+                jTextField3.setText(resultSet.getString(10));
+                
+                if ("YA".equals(resultSet.getString(11))) {
+                    buta.setSelected(true);
+                }
+                else {
+                    buta2.setSelected(true);
+                }
+                
+                jTextField4.setText(resultSet.getString(12));
+                
+                if ("YA".equals(resultSet.getString(13))) {
+                    rabun.setSelected(true);
+                }
+                else {
+                    rabun2.setSelected(true);
+                }
+                
+                jTextField5.setText(resultSet.getString(14));
+                
+                if ("YA".equals(resultSet.getString(15))) {
+                    alergi.setSelected(true);
+                }
+                else {
+                    alergi2.setSelected(true);
+                }
+                
+                jTextField6.setText(resultSet.getString(16));
+            }
+        } catch (Exception e) {
+            
+        }
+    }
+    
+    private void cek () {
+        if ("".equals(keterampilan.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf keterampilan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            keterampilan.requestFocus();
+        }
+        else if ("".equals(jTextField1.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf Keterangan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            jTextField1.requestFocus();
+        }
+        else if ("".equals(jTextField2.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf Keterangan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            jTextField2.requestFocus();
+        }
+        else if ("".equals(jTextField3.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf Keterangan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            jTextField3.requestFocus();
+        }
+        else if ("".equals(jTextField4.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf Keterangan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            jTextField4.requestFocus();
+        }
+        else if ("".equals(jTextField5.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf Keterangan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            jTextField5.requestFocus();
+        }
+        else if ("".equals(jTextField6.getText())) {
+            JOptionPane.showMessageDialog(null, "Maaf Keterangan harap di isi !!"
+                    , "Perignatan !!", JOptionPane.WARNING_MESSAGE);
+            jTextField6.requestFocus();
+        }
+        else {
+            pertanyaan pertanyaan = new pertanyaan();
+            this.getParent().add(pertanyaan);
+            try {
+                pertanyaan.setMaximum(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            pertanyaan.setVisible(true);
+            input();
+            this.setVisible(false);
+        }
+    }
+    
+    private void input () {
+        controllerKerja cKerja = new controllerKerja(this);
+        controllerFisik cFisik = new controllerFisik(this);
+        cKerja.save(par, negara.getSelectedItem(), keterampilan.getText());
+        cFisik.save(par, merokokString(), jTextField1.getText()
+                , kerasString(), jTextField2.getText()
+                , tatoString(), jTextField3.getText()
+                , butaString(), jTextField4.getText()
+                , rabunString(), jTextField5.getText()
+                , alergiString(), jTextField6.getText());
+    }
+    
+    private void setNegara () {
+        String sql = "SELECT * FROM `negara`";
+        PreparedStatement preparedStatement = null;
+        negara.removeAllItems();
+        try {
+            preparedStatement = dataBaseConncetionFactory.getConnection().prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                negara.addItem(resultSet.getString(2));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private String merokokString () {
+        if (rokok.isSelected()) {
+            return "YA";
+        }
+        else {
+            return "TIDAK";
+        }
+    }
+    
+    private String kerasString () {
+        if (keras.isSelected()) {
+            return "YA";
+        }
+        else {
+            return "TIDAK";
+        }
+    }
+    
+    private String tatoString () {
+        if (tato.isSelected()) {
+            return "YA";
+        }
+        else {
+            return "TIDAK";
+        }
+    }
+    
+    private String butaString () {
+        if (buta.isSelected()) {
+            return "YA";
+        }
+        else {
+            return "TIDAK";
+        }
+    }
+    
+    private String rabunString () {
+        if (rabun.isSelected()) {
+            return "YA";
+        }
+        else {
+            return "TIDAK";
+        }
+    }
+    
+    private String alergiString () {
+        if (alergi.isSelected()) {
+            return "YA";
+        }
+        else {
+            return "TIDAK";
+        }
     }
 
     /**
@@ -36,16 +260,16 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         tatto = new javax.swing.ButtonGroup();
         buta_warna = new javax.swing.ButtonGroup();
         rabun_dekat = new javax.swing.ButtonGroup();
-        alergi = new javax.swing.ButtonGroup();
+        alergiGrub = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        negara = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        keterampilan = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -55,18 +279,18 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
+        rokok = new javax.swing.JRadioButton();
+        rokok2 = new javax.swing.JRadioButton();
+        keras = new javax.swing.JRadioButton();
+        keras2 = new javax.swing.JRadioButton();
+        tato = new javax.swing.JRadioButton();
+        tato2 = new javax.swing.JRadioButton();
+        buta = new javax.swing.JRadioButton();
+        buta2 = new javax.swing.JRadioButton();
+        rabun = new javax.swing.JRadioButton();
+        rabun2 = new javax.swing.JRadioButton();
+        alergi = new javax.swing.JRadioButton();
+        alergi2 = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -96,12 +320,10 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Negara Tujuan :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        negara.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Keterampilan :");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -109,6 +331,8 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
 
         jSeparator1.setBackground(new java.awt.Color(153, 255, 153));
         jSeparator1.setForeground(new java.awt.Color(63, 224, 43));
+
+        keterampilan.setText("jTextField7");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,11 +344,11 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(negara, 0, 198, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(keterampilan, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -141,9 +365,9 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(negara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(keterampilan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -174,53 +398,71 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Alergi :");
 
-        jRadioButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton1.setText("YA");
+        rokok.setBackground(new java.awt.Color(204, 204, 204));
+        merokok.add(rokok);
+        rokok.setForeground(new java.awt.Color(0, 0, 0));
+        rokok.setSelected(true);
+        rokok.setText("YA");
 
-        jRadioButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton2.setText("TIDAK");
+        rokok2.setBackground(new java.awt.Color(204, 204, 204));
+        merokok.add(rokok2);
+        rokok2.setForeground(new java.awt.Color(0, 0, 0));
+        rokok2.setText("TIDAK");
 
-        jRadioButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton3.setText("YA");
+        keras.setBackground(new java.awt.Color(204, 204, 204));
+        minum_minuman_keras.add(keras);
+        keras.setForeground(new java.awt.Color(0, 0, 0));
+        keras.setSelected(true);
+        keras.setText("YA");
 
-        jRadioButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton4.setText("TIDAK");
+        keras2.setBackground(new java.awt.Color(204, 204, 204));
+        minum_minuman_keras.add(keras2);
+        keras2.setForeground(new java.awt.Color(0, 0, 0));
+        keras2.setText("TIDAK");
 
-        jRadioButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton5.setText("YA");
+        tato.setBackground(new java.awt.Color(204, 204, 204));
+        tatto.add(tato);
+        tato.setForeground(new java.awt.Color(0, 0, 0));
+        tato.setSelected(true);
+        tato.setText("YA");
 
-        jRadioButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton6.setText("TIDAK");
+        tato2.setBackground(new java.awt.Color(204, 204, 204));
+        tatto.add(tato2);
+        tato2.setForeground(new java.awt.Color(0, 0, 0));
+        tato2.setText("TIDAK");
 
-        jRadioButton7.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton7.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton7.setText("YA");
+        buta.setBackground(new java.awt.Color(204, 204, 204));
+        buta_warna.add(buta);
+        buta.setForeground(new java.awt.Color(0, 0, 0));
+        buta.setSelected(true);
+        buta.setText("YA");
 
-        jRadioButton8.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton8.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton8.setText("TIDAK");
+        buta2.setBackground(new java.awt.Color(204, 204, 204));
+        buta_warna.add(buta2);
+        buta2.setForeground(new java.awt.Color(0, 0, 0));
+        buta2.setText("TIDAK");
 
-        jRadioButton9.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton9.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton9.setText("YA");
+        rabun.setBackground(new java.awt.Color(204, 204, 204));
+        rabun_dekat.add(rabun);
+        rabun.setForeground(new java.awt.Color(0, 0, 0));
+        rabun.setSelected(true);
+        rabun.setText("YA");
 
-        jRadioButton10.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton10.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton10.setText("TIDAK");
+        rabun2.setBackground(new java.awt.Color(204, 204, 204));
+        rabun_dekat.add(rabun2);
+        rabun2.setForeground(new java.awt.Color(0, 0, 0));
+        rabun2.setText("TIDAK");
 
-        jRadioButton11.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton11.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton11.setText("YA");
+        alergi.setBackground(new java.awt.Color(204, 204, 204));
+        alergiGrub.add(alergi);
+        alergi.setForeground(new java.awt.Color(0, 0, 0));
+        alergi.setSelected(true);
+        alergi.setText("YA");
 
-        jRadioButton12.setBackground(new java.awt.Color(204, 204, 204));
-        jRadioButton12.setForeground(new java.awt.Color(0, 0, 0));
-        jRadioButton12.setText("TIDAK");
+        alergi2.setBackground(new java.awt.Color(204, 204, 204));
+        alergiGrub.add(alergi2);
+        alergi2.setForeground(new java.awt.Color(0, 0, 0));
+        alergi2.setText("TIDAK");
 
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Keterangan :");
@@ -260,7 +502,6 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -272,58 +513,60 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(tato, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tato2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel14))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(buta, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(buta2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel15))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(rabun, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rabun2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel16))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(alergi, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(alergi2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel17)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rokok, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rokok2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField5))
+                                .addComponent(jLabel12))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(keras, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(keras2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1)))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField2))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -331,46 +574,47 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
+                    .addComponent(rokok)
+                    .addComponent(rokok2)
                     .addComponent(jLabel12)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4)
+                    .addComponent(keras)
+                    .addComponent(keras2)
                     .addComponent(jLabel13)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(tato)
+                        .addComponent(tato2)
+                        .addComponent(jLabel14)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton8)
+                    .addComponent(buta)
+                    .addComponent(buta2)
                     .addComponent(jLabel15)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jRadioButton9)
-                    .addComponent(jRadioButton10)
+                    .addComponent(rabun)
+                    .addComponent(rabun2)
                     .addComponent(jLabel16)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jRadioButton11)
-                    .addComponent(jRadioButton12)
+                    .addComponent(alergi)
+                    .addComponent(alergi2)
                     .addComponent(jLabel17)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/icon/icons8-Back_25.png"))); // NOI18N
@@ -383,6 +627,11 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/icon/icons8-Next_25.png"))); // NOI18N
         jButton2.setText("Lanjutkan");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -445,17 +694,25 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
             e.printStackTrace();
         }
         bahasa_keluarga.setVisible(true);
+        input();
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here
+        cek();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup alergi;
+    private javax.swing.JRadioButton alergi;
+    private javax.swing.JRadioButton alergi2;
+    private javax.swing.ButtonGroup alergiGrub;
+    private javax.swing.JRadioButton buta;
+    private javax.swing.JRadioButton buta2;
     private javax.swing.ButtonGroup buta_warna;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -476,18 +733,6 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
@@ -496,9 +741,19 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JRadioButton keras;
+    private javax.swing.JRadioButton keras2;
+    private javax.swing.JTextField keterampilan;
     private javax.swing.ButtonGroup merokok;
     private javax.swing.ButtonGroup minum_minuman_keras;
+    private javax.swing.JComboBox<String> negara;
+    private javax.swing.JRadioButton rabun;
+    private javax.swing.JRadioButton rabun2;
     private javax.swing.ButtonGroup rabun_dekat;
+    private javax.swing.JRadioButton rokok;
+    private javax.swing.JRadioButton rokok2;
+    private javax.swing.JRadioButton tato;
+    private javax.swing.JRadioButton tato2;
     private javax.swing.ButtonGroup tatto;
     // End of variables declaration//GEN-END:variables
 }

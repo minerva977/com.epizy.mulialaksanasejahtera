@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.Controller;
 
 import com.epizy.mulialaksanasejahtera.DAO.kemampuanBahasaDAO;
-import com.epizy.mulialaksanasejahtera.DAOImpelement.kemampuanBahasaDAOImpl;
+import com.epizy.mulialaksanasejahtera.DAOImpl.kemampuanBahasaDAOImpl;
 import com.epizy.mulialaksanasejahtera.Model.kemampuanBahasa;
 
 import javax.swing.*;

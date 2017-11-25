@@ -6,10 +6,9 @@
 package com.epizy.mulialaksanasejahtera.Controller;
 
 import com.epizy.mulialaksanasejahtera.DAO.configDAO;
-import com.epizy.mulialaksanasejahtera.DAOImpelement.configDAOImpl;
+import com.epizy.mulialaksanasejahtera.DAOImpl.configDAOImpl;
 
 import javax.swing.*;
-import java.util.List;
 
 /**
  *
@@ -31,7 +30,7 @@ public class controllerConfig {
     }
     
     //mengirim email
-    public void sendEmail(List<Object> objectList){
-        configDAO.SendEmail(objectList);
+    public void sendEmail(String[] OStrings){
+        configDAO.SendEmail(OStrings);
     }
 }

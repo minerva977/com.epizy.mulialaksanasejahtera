@@ -15,14 +15,14 @@ import java.util.Date;
  *
  * @author Nier
  */
-public class email extends javax.swing.JDialog {
+public class emailTerdaftar extends javax.swing.JDialog {
 
     /**
      * Creates new form email
      */
     GetDataFromDB gdfdb=new GetDataFromDB();
     controllerConfig config = new controllerConfig();
-    public email(java.awt.Frame parent, boolean modal,String no_reg) {
+    public emailTerdaftar(java.awt.Frame parent, boolean modal,String no_reg) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -46,18 +46,19 @@ public class email extends javax.swing.JDialog {
         String sql;
         sql="no_reg = '"+no_reg+"'";
         jTextField1.setText("nier.vae@gmail.com");
-        jTextField2.setText(gdfdb.setOneDataFromDB("data_pribadi", "email", sql));
+        jTextField2.setText(gdfdb.setOneDataFromDB("data_pribadi_selesai", "email", sql));
         String sub,pesanText;
-        sub="Di beritahukan kepada Babak/Ibu : "+gdfdb.setOneDataFromDB("data_pribadi", "nama", sql);
+        sub="Di beritahukan kepada Babak/Ibu : "+gdfdb.setOneDataFromDB("data_pribadi_selesai", "nama", sql);
         pesanText="Ada Dengan No Registrasi : "+no_reg
-                + "\n anda Telah Di Nyatakan Di trima "
-                + "\n Dan Akan Di Interview Pada Tanggal :"+sdf.format(all)
-                + "\n dan harus hadir di tempat intevrew jalan blabal";
+                + "\n Selamat anda berhasil terdaftar pada proses pendaftaran "
+                + "\n dan silahkan mengikuti pelatihan di "
+                + "\n BALAI LATIHAN KERJA Pusat Sidoarjo"
+                + "\n pada Tanggal : "+sdf.format(all);
         subjek.setText(sub);
         pesan.setText(pesanText);
     }
     private void email(){
-        String[] aStrings = null;
+        String[] aStrings = new String[7];
         aStrings[1] = jTextField1.getText();
         aStrings[2] = "ika120517";
         aStrings[3] = jTextField1.getText();
@@ -285,21 +286,23 @@ public class email extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(email.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(emailTerdaftar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(email.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(emailTerdaftar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(email.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(emailTerdaftar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(email.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(emailTerdaftar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                email dialog = new email(new javax.swing.JFrame(), true,"");
+                emailTerdaftar dialog = new emailTerdaftar(new javax.swing.JFrame(), true,"");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

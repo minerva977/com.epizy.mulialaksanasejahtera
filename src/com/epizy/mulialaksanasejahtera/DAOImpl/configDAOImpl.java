@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.epizy.mulialaksanasejahtera.DAOImpelement;
+package com.epizy.mulialaksanasejahtera.DAOImpl;
 
 import com.epizy.mulialaksanasejahtera.DAO.configDAO;
 import org.apache.commons.mail.EmailException;
@@ -11,7 +11,6 @@ import org.apache.commons.mail.SimpleEmail;
 
 import javax.swing.*;
 import java.net.URL;
-import java.util.List;
 
 public class configDAOImpl implements configDAO {
 
@@ -23,7 +22,8 @@ public class configDAOImpl implements configDAO {
     public void getImageFormWeb(String Name, JLabel jLabel) {
          try{
              //set URL
-            URL url=new URL("http://localhost/Mulia_laksana_sejatra_web/foto/"+Name);
+             //http://mulialaksanasejahtera.epizy.com/menu/daftar.php
+            URL url=new URL("http://mulialaksanasejahtera.epizy.com/foto/"+Name);
             String xhtml;
             //set Model Iamge
             xhtml="<html>"
@@ -46,7 +46,7 @@ public class configDAOImpl implements configDAO {
     * listObjects.get(6) = Pesan Email
     */
     @Override
-    public void SendEmail(List<Object> listObjects) {
+    public void SendEmail(String [] Object) {
         //deklarasi variabel
         SimpleEmail email = new SimpleEmail();
         
@@ -54,21 +54,21 @@ public class configDAOImpl implements configDAO {
         email.setHostName("smtp.googlemail.com");
         email.setSmtpPort(587);
         email.setSSL(true);
-        email.setAuthentication(listObjects.get(1).toString(), listObjects.get(2).toString());
+        email.setAuthentication(Object[1], Object[2]);
         email.setSSLOnConnect(true);
         
         try{
             // Email pengirim
-            email.setFrom(listObjects.get(3).toString());
+            email.setFrom(Object[3]);
 
             //Email Tujuan
-            email.addTo(listObjects.get(4).toString());
+            email.addTo(Object[4]);
 
             //Subjek Email
-            email.setSubject(listObjects.get(5).toString());
+            email.setSubject(Object[5]);
 
             //Isi Pesan
-            email.setMsg(listObjects.get(6).toString());
+            email.setMsg(Object[6]);
 
             //Mengirim Email
             email.send();

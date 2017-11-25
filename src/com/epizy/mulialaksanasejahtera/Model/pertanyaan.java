@@ -3,8 +3,8 @@ package com.epizy.mulialaksanasejahtera.Model;
 public class pertanyaan {
     private dataDiri dataDiri = new dataDiri();
     private String NoRegistrasi = dataDiri.getNoRegistrasi();
-    private String Rencana;
-    private String Prusahaan;
+    private String Pernyataan;
+    private String Persetujuan;
 
     public String getNoRegistrasi() {
         return NoRegistrasi;
@@ -14,19 +14,19 @@ public class pertanyaan {
         NoRegistrasi = noRegistrasi;
     }
 
-    public String getRencana() {
-        return Rencana;
+    public String getPernyataan() {
+        return Pernyataan;
     }
 
-    public void setRencana(String rencana) {
-        Rencana = rencana;
+    public void setPernyataan(String Pernyataan) {
+        this.Pernyataan = Pernyataan;
     }
 
-    public String getPrusahaan() {
-        return Prusahaan;
+    public String getPersetujuan() {
+        return Persetujuan;
     }
 
-    public void setPrusahaan(String prusahaan) {
-        Prusahaan = prusahaan;
+    public void setPersetujuan(String persetujuan) {
+        Persetujuan = persetujuan;
     }
 }

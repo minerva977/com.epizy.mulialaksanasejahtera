@@ -8,7 +8,7 @@ package com.epizy.mulialaksanasejahtera.View.JInternalFrame;
 import com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris;
 import com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga;
 import com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa;
-import mv.lib.BuildDB.CodeDataBase;
+import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFactory;
 import mv.lib.ProsesDB.GetDataFromDB;
 import mv.lib.ProsesDB.InputToDB;
 
@@ -41,7 +41,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
         clr();
         jLabel1.setText("Kealihan Bahasa Dan Informasi Keluarga Dengan Nomer Registrasi : "+par);
     }
-    void clr(){
+    private void clr(){
         bahasa_lain.setText("Tidak ADA");
         nama_ayah.setText("");
         kerja_ayah.setText("");
@@ -60,7 +60,6 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
         anak_ke.setText("");
         ahli_war.setText("");
         hub_ahli_war.setText("");
-        CodeDataBase cdb = new CodeDataBase();
         String sql="SELECT "
                 + "`kemampuan_bahasa`.*, `informasi_keluarga`.*, `ahli_waris`.* "
                 + "FROM "
@@ -69,9 +68,50 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
                 + "informasi_keluarga.no_reg = '"+par+"' AND ahli_waris.no_reg = '"+par+"' "
                 + "AND kemampuan_bahasa.no_reg = '"+par+"'";
         try {
-            PreparedStatement preparedStatement = cdb.Connect().prepareCall(sql);
+            PreparedStatement preparedStatement = dataBaseConncetionFactory.getConnection().prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                //bahasa inggris
+                if ("Bisa".equals(resultSet.getString(2))) {
+                    inggris.setSelected(true);
+                }
+                else if ("Cukup".equals(resultSet.getString(2))) {
+                    inggris2.setSelected(true);
+                }
+                else {
+                    inggris3.setSelected(true);
+                }
+                //bahasa mandarin
+                if ("Bisa".equals(resultSet.getString(3))) {
+                    mandarin.setSelected(true);
+                }
+                else if ("Cukup".equals(resultSet.getString(3))) {
+                    mandarin2.setSelected(true);
+                }
+                else {
+                    mandarin3.setSelected(true);
+                }
+                //bahasa hokkian
+                if ("Bisa".equals(resultSet.getString(4))) {
+                    hokian.setSelected(true);
+                }
+                else if ("Cukup".equals(resultSet.getString(4))) {
+                    hokian2.setSelected(true);
+                }
+                else {
+                    hokian3.setSelected(true);
+                }
+                //bahasa hokkan
+                if ("Bisa".equals(resultSet.getString(5))) {
+                    hakkan.setSelected(true);
+                }
+                else if ("Cukup".equals(resultSet.getString(5))) {
+                    hakkan2.setSelected(true);
+                }
+                else {
+                    hakkan3.setSelected(true);
+                }
+                
                 bahasa_lain.setText(resultSet.getString(6));
                 nama_ayah.setText(resultSet.getString(8));
                 kerja_ayah.setText(resultSet.getString(9));
@@ -94,9 +134,10 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             preparedStatement.close();
         } catch (SQLException ex) {
             Logger.getLogger(bahasa_keluarga.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
-    void cek(){
+    private void cek(){
         if("".equals(bahasa_lain.getText())){
             JOptionPane.showMessageDialog(
                     null, "maaf bahasa lain masih kosong mohon di isi"
@@ -218,11 +259,11 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             this.setVisible(false);
         }
     }
-    void input(){
+    private void input(){
         controllerAhliWaris controllerAhliWaris = new controllerAhliWaris(this);
         controllerInformasiKeluarga controllerInformasiKeluarga = new controllerInformasiKeluarga(this);
         controllerKemampuanBahasa controllerKemampuanBahasa = new controllerKemampuanBahasa(this);
-        SimpleDateFormat sdf=new SimpleDateFormat("dd-MMMM-yyyy");
+        SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
         String b1,b2,b3,b4,tgl_bpk,tgl_ibuk;
         tgl_bpk=sdf.format(tgl_ayah.getDate());
         tgl_ibuk=sdf.format(tgl_ibu.getDate());
@@ -237,7 +278,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
                 , umur_anak.getText(), so_laki.getText(), so_cewek.getText(), anak_ke.getText());
         controllerAhliWaris.save(par, ahli_war.getText(), hub_ahli_war.getText());
     }
-    String bhs1(){
+    private String bhs1(){
         if(inggris.isSelected()){
             return "Bisa";
         }
@@ -248,7 +289,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             return "Tidak Bisa";
         }
     }
-    String bhs2(){
+    private String bhs2(){
         if(mandarin.isSelected()){
             return "Bisa";
         }
@@ -259,7 +300,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             return "Tidak Bisa";
         }
     }
-    String bhs3(){
+    private String bhs3(){
         if(hokian.isSelected()){
             return "Bisa";
         }
@@ -270,7 +311,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             return "Tidak Bisa";
         }
     }
-    String bhs4(){
+    private String bhs4(){
         if(hakkan.isSelected()){
             return "Bisa";
         }
@@ -692,7 +733,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
         ahli_war.setText("jTextField1");
 
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setText("Nama Ahli Waris :");
+        jLabel25.setText("Hubungan Ahli Waris :");
 
         hub_ahli_war.setText("jTextField2");
 
@@ -984,6 +1025,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             e.printStackTrace();
         }
         interview.setVisible(true);
+        input();
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

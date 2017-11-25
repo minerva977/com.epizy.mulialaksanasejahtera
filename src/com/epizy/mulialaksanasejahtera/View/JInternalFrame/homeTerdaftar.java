@@ -5,7 +5,8 @@
  */
 package com.epizy.mulialaksanasejahtera.View.JInternalFrame;
 
-import com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri;
+import com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar;
+import com.epizy.mulialaksanasejahtera.View.JDialog.printTanggal;
 import mv.lib.ProsesDB.GetDataFromTable;
 
 import javax.swing.*;
@@ -17,15 +18,15 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author Wisnu_Putra_Dewa
  */
-public class home extends javax.swing.JInternalFrame {
+public class homeTerdaftar extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form home
      */
     public static String par;
     GetDataFromTable gdft=new GetDataFromTable();
-    controllerDataDiri controllerDataDiri = new controllerDataDiri(this);
-    public home() {
+    controllerDataDiriTerdaftar controllerDataDiriTerdaftar = new controllerDataDiriTerdaftar(this);
+    public homeTerdaftar() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
         initComponents();
@@ -33,14 +34,14 @@ public class home extends javax.swing.JInternalFrame {
     }
     private void clr(){
         jTextField1.setText("");
-        controllerDataDiri.setTabel(jTable1);
+        controllerDataDiriTerdaftar.setTabel(jTable1);
     }
     private void cari(){
         if("".equals(jTextField1.getText())){
-            controllerDataDiri.setTabel(jTable1);
+            controllerDataDiriTerdaftar.setTabel(jTable1);
         }
         else{
-            controllerDataDiri.searchByOject(jTable1,jTextField1);
+            controllerDataDiriTerdaftar.searchByOject(jTable1,jTextField1);
         }
     }
 
@@ -62,6 +63,7 @@ public class home extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setBorder(null);
         setTitle("Home");
@@ -123,6 +125,14 @@ public class home extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/Icon/icons8-Print-20.png"))); // NOI18N
+        jButton2.setText("Cetak");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -130,13 +140,15 @@ public class home extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -146,7 +158,8 @@ public class home extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
                 .addContainerGap())
@@ -199,7 +212,7 @@ public class home extends javax.swing.JInternalFrame {
         }
         else{
             //menampilkan frame user
-            new com.epizy.mulialaksanasejahtera.View.JFrame.frameUser().setVisible(true);
+            new com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar().setVisible(true);
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -213,9 +226,15 @@ public class home extends javax.swing.JInternalFrame {
         clr();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new printTanggal(null, true).setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
