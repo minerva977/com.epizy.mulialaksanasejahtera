@@ -15,6 +15,7 @@ import java.util.Date;
  *
  * @author Nier
  */
+@SuppressWarnings("ALL")
 public class emailTerdaftar extends javax.swing.JDialog {
 
     /**
@@ -22,27 +23,35 @@ public class emailTerdaftar extends javax.swing.JDialog {
      */
     GetDataFromDB gdfdb=new GetDataFromDB();
     controllerConfig config = new controllerConfig();
-    public emailTerdaftar(java.awt.Frame parent, boolean modal,String no_reg) {
+    @SuppressWarnings("deprecation")
+    public emailTerdaftar(java.awt.Frame parent, boolean modal, String no_reg) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         SimpleDateFormat sdf=new SimpleDateFormat("dd-MMMM-yyyy");
         Date now=new Date();
         int tgl,bln,thn;
+        //noinspection deprecation
         tgl=7+now.getDay();
+        //noinspection deprecation
         bln=now.getMonth();
+        //noinspection deprecation
         thn=now.getYear();
         if(tgl>31){
             tgl=0;
+            //noinspection deprecation
             tgl=now.getDay();
+            //noinspection deprecation
             bln=now.getMonth();
         }
         else{
             tgl=0;
+            //noinspection deprecation
             tgl=7+now.getDay();
+            //noinspection deprecation
             bln=now.getMonth()+1;
         }
-        long all=Date.UTC(thn, bln, tgl, 0, 0, 0);
+        @SuppressWarnings("deprecation") long all=Date.UTC(thn, bln, tgl, 0, 0, 0);
         String sql;
         sql="no_reg = '"+no_reg+"'";
         jTextField1.setText("nier.vae@gmail.com");
@@ -77,23 +86,23 @@ public class emailTerdaftar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator1 = new javax.swing.JSeparator();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator2 = new javax.swing.JSeparator();
+        javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
         subjek = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JSeparator jSeparator3 = new javax.swing.JSeparator();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         pesan = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
 
         setTitle("Email");
         setResizable(false);
@@ -314,20 +323,6 @@ public class emailTerdaftar extends javax.swing.JDialog {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextArea pesan;

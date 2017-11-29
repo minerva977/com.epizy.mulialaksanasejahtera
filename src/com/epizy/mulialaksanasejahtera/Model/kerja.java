@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.Model;
 
 public class kerja {
-    private dataDiri dataDiri = new dataDiri();
+    private final dataDiri dataDiri = new dataDiri();
     private String NoRegistrasi = dataDiri.getNoRegistrasi();
     private String Tujuan;
     private String Keterampilan;

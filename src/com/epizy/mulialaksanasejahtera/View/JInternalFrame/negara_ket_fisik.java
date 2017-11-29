@@ -11,6 +11,7 @@ import com.epizy.mulialaksanasejahtera.DataBaseConncetion.dataBaseConncetionFact
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,7 +25,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     /**
      * Creates new form negara_ket_fisik
      */
-    private String par = interview.parameter;
+    private final String par = interview.parameter;
     public negara_ket_fisik() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
@@ -45,7 +46,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         String sql = "SELECT kerja.*, fisik.* "
                 + "FROM kerja, fisik "
                 + "WHERE kerja.no_reg = '"+par+"' AND fisik.no_reg = '"+par+"'";
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         try {
             
             preparedStatement = dataBaseConncetionFactory.getConnection().prepareCall(sql);
@@ -110,7 +111,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
                 
                 jTextField6.setText(resultSet.getString(16));
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
             
         }
     }
@@ -179,7 +180,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     
     private void setNegara () {
         String sql = "SELECT * FROM `negara`";
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         negara.removeAllItems();
         try {
             preparedStatement = dataBaseConncetionFactory.getConnection().prepareStatement(sql);
@@ -255,30 +256,30 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        merokok = new javax.swing.ButtonGroup();
-        minum_minuman_keras = new javax.swing.ButtonGroup();
-        tatto = new javax.swing.ButtonGroup();
-        buta_warna = new javax.swing.ButtonGroup();
-        rabun_dekat = new javax.swing.ButtonGroup();
-        alergiGrub = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        ButtonGroup merokok = new ButtonGroup();
+        ButtonGroup minum_minuman_keras = new ButtonGroup();
+        ButtonGroup tatto = new ButtonGroup();
+        ButtonGroup buta_warna = new ButtonGroup();
+        ButtonGroup rabun_dekat = new ButtonGroup();
+        ButtonGroup alergiGrub = new ButtonGroup();
+        JPanel jPanel1 = new JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        JPanel jPanel2 = new JPanel();
+        JLabel jLabel2 = new JLabel();
         negara = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        JLabel jLabel3 = new JLabel();
+        JLabel jLabel4 = new JLabel();
+        JSeparator jSeparator1 = new JSeparator();
         keterampilan = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        JPanel jPanel3 = new JPanel();
+        JLabel jLabel5 = new JLabel();
+        JLabel jLabel6 = new JLabel();
+        JSeparator jSeparator2 = new JSeparator();
+        JLabel jLabel7 = new JLabel();
+        JLabel jLabel8 = new JLabel();
+        JLabel jLabel9 = new JLabel();
+        JLabel jLabel10 = new JLabel();
+        JLabel jLabel11 = new JLabel();
         rokok = new javax.swing.JRadioButton();
         rokok2 = new javax.swing.JRadioButton();
         keras = new javax.swing.JRadioButton();
@@ -291,26 +292,26 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         rabun2 = new javax.swing.JRadioButton();
         alergi = new javax.swing.JRadioButton();
         alergi2 = new javax.swing.JRadioButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        JLabel jLabel12 = new JLabel();
+        JLabel jLabel13 = new JLabel();
+        JLabel jLabel14 = new JLabel();
+        JLabel jLabel15 = new JLabel();
+        JLabel jLabel16 = new JLabel();
+        JLabel jLabel17 = new JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JButton jButton1 = new JButton();
+        JButton jButton2 = new JButton();
 
         setBorder(null);
 
         jPanel1.setBackground(new java.awt.Color(63, 224, 43));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tujuan Dan Data Fisik");
@@ -325,7 +326,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Keterampilan :");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tujuan :");
 
@@ -376,7 +377,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Merokok :");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Fisik :");
 
@@ -619,19 +620,11 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/icon/icons8-Back_25.png"))); // NOI18N
         jButton1.setText("Kembali");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/icon/icons8-Next_25.png"))); // NOI18N
         jButton2.setText("Lanjutkan");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -686,6 +679,7 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         bahasa_keluarga bahasa_keluarga = new bahasa_keluarga();
         this.getParent().add(bahasa_keluarga);
         try {
@@ -696,45 +690,28 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
         bahasa_keluarga.setVisible(true);
         input();
         this.setVisible(false);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         cek();
+        this.setCursor(Cursor.getDefaultCursor());
+        try {
+            wait(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton alergi;
     private javax.swing.JRadioButton alergi2;
-    private javax.swing.ButtonGroup alergiGrub;
     private javax.swing.JRadioButton buta;
     private javax.swing.JRadioButton buta2;
-    private javax.swing.ButtonGroup buta_warna;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -744,16 +721,12 @@ public class negara_ket_fisik extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton keras;
     private javax.swing.JRadioButton keras2;
     private javax.swing.JTextField keterampilan;
-    private javax.swing.ButtonGroup merokok;
-    private javax.swing.ButtonGroup minum_minuman_keras;
     private javax.swing.JComboBox<String> negara;
     private javax.swing.JRadioButton rabun;
     private javax.swing.JRadioButton rabun2;
-    private javax.swing.ButtonGroup rabun_dekat;
     private javax.swing.JRadioButton rokok;
     private javax.swing.JRadioButton rokok2;
     private javax.swing.JRadioButton tato;
     private javax.swing.JRadioButton tato2;
-    private javax.swing.ButtonGroup tatto;
     // End of variables declaration//GEN-END:variables
 }

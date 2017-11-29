@@ -9,6 +9,7 @@ import com.epizy.mulialaksanasejahtera.DAO.configDAO;
 import com.epizy.mulialaksanasejahtera.DAOImpl.configDAOImpl;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -16,9 +17,7 @@ import javax.swing.*;
  */
 public class controllerConfig {
     //Deklarasi Variabel
-    private JFrame jFrame;
-    private JInternalFrame jInternalFrame;
-    configDAO configDAO;
+    final configDAO configDAO;
 
     public controllerConfig() {
         configDAO = new configDAOImpl();
@@ -32,5 +31,13 @@ public class controllerConfig {
     //mengirim email
     public void sendEmail(String[] OStrings){
         configDAO.SendEmail(OStrings);
+    }
+    
+    public void setIcon (JFrame jFrame) {
+        configDAO.setIcon(jFrame);
+    }
+    
+    public void setIcon (Frame frame) {
+        configDAO.setIcon(frame);
     }
 }

@@ -11,14 +11,16 @@ import java.util.List;
 public class controllerDataDiri {
     JFrame jFrame;
     JInternalFrame jInternalFrame;
-    dataDiriDAO dataDiriDAO;
+    final dataDiriDAO dataDiriDAO;
     List<dataDiri> dataDiriList;
 
+ //--Commented out by Inspection START (25/11/2017 12.44.33 PM):
     public controllerDataDiri(JFrame jFrames) {
         this.jFrame = jFrames;
         dataDiriDAO = new dataDiriDAOImpl();
         dataDiriList = dataDiriDAO.GetAll();
     }
+ //--Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
     public controllerDataDiri(JInternalFrame jInternalFrame) {
         this.jInternalFrame = jInternalFrame;
         dataDiriDAO = new dataDiriDAOImpl();
@@ -31,6 +33,7 @@ public class controllerDataDiri {
         jTable.setModel(tabelModelDataDiri);
     }
 
+ //--Commented out by Inspection START (25/11/2017 12.44.33 PM):
     public void save(JTextField jTextField1,JTextField jTextField2,JTextField jTextField3
             ,JTextField jTextField4,JTextField jTextField5,JTextField jTextField6,JTextField jTextField7
             ,JTextField jTextField8,JTextField jTextField9,JTextField jTextField10,JTextField jTextField11
@@ -68,7 +71,9 @@ public class controllerDataDiri {
         dataDiri.setKeterampilanKusus(jTextField27.getText());
         dataDiriDAO.Save(dataDiri);
     }
+ //--Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
+ //--Commented out by Inspection START (25/11/2017 12.44.33 PM):
     public void update(JTextField jTextField1,JTextField jTextField2,JTextField jTextField3
             ,JTextField jTextField4,JTextField jTextField5,JTextField jTextField6,JTextField jTextField7
             ,JTextField jTextField8,JTextField jTextField9,JTextField jTextField10,JTextField jTextField11
@@ -106,6 +111,7 @@ public class controllerDataDiri {
         dataDiri.setKeterampilanKusus(jTextField27.getText());
         dataDiriDAO.Update(dataDiri);
     }
+ //--Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
     public void delete(Object NoRegistrasi) {
         if (!"".equals(NoRegistrasi)) {

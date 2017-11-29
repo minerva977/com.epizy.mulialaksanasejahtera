@@ -14,6 +14,7 @@ import mv.lib.ProsesDB.InputToDB;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,10 +23,15 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static java.awt.Cursor.WAIT_CURSOR;
+
+//import org.jetbrains.annotations.NotNull;
+
 /**
  *
  * @author Nier
  */
+@SuppressWarnings("ALL")
 public class bahasa_keluarga extends javax.swing.JInternalFrame {
 
     /**
@@ -41,6 +47,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
         clr();
         jLabel1.setText("Kealihan Bahasa Dan Informasi Keluarga Dengan Nomer Registrasi : "+par);
     }
+    @SuppressWarnings("deprecation")
     private void clr(){
         bahasa_lain.setText("Tidak ADA");
         nama_ayah.setText("");
@@ -116,10 +123,12 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
                 nama_ayah.setText(resultSet.getString(8));
                 kerja_ayah.setText(resultSet.getString(9));
                 lahir_ayah.setText(resultSet.getString(10));
+                //noinspection deprecation
                 tgl_ayah.setDate(new Date(resultSet.getString(11)));
                 nama_ibu.setText(resultSet.getString(12));
                 kerja_ibu.setText(resultSet.getString(13));
                 lahir_ibu.setText(resultSet.getString(14));
+                //noinspection deprecation
                 tgl_ibu.setDate(new Date(resultSet.getString(15)));
                 nama_sum_is.setText(resultSet.getString(16));
                 kerja_sum_is.setText(resultSet.getString(17));
@@ -278,6 +287,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
                 , umur_anak.getText(), so_laki.getText(), so_cewek.getText(), anak_ke.getText());
         controllerAhliWaris.save(par, ahli_war.getText(), hub_ahli_war.getText());
     }
+    //@NotNull
     private String bhs1(){
         if(inggris.isSelected()){
             return "Bisa";
@@ -289,6 +299,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             return "Tidak Bisa";
         }
     }
+    //@NotNull
     private String bhs2(){
         if(mandarin.isSelected()){
             return "Bisa";
@@ -300,6 +311,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             return "Tidak Bisa";
         }
     }
+    //@NotNull
     private String bhs3(){
         if(hokian.isSelected()){
             return "Bisa";
@@ -311,6 +323,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
             return "Tidak Bisa";
         }
     }
+    //@NotNull
     private String bhs4(){
         if(hakkan.isSelected()){
             return "Bisa";
@@ -332,81 +345,81 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bhs_inggris = new javax.swing.ButtonGroup();
-        bhs_mandarin = new javax.swing.ButtonGroup();
-        bhs_hokian = new javax.swing.ButtonGroup();
-        bhs_hakkan = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        ButtonGroup bhs_inggris = new ButtonGroup();
+        ButtonGroup bhs_mandarin = new ButtonGroup();
+        ButtonGroup bhs_hokian = new ButtonGroup();
+        ButtonGroup bhs_hakkan = new ButtonGroup();
+        JPanel jPanel1 = new JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        JSeparator jSeparator1 = new JSeparator();
+        JPanel jPanel2 = new JPanel();
+        JLabel jLabel2 = new JLabel();
+        JLabel jLabel3 = new JLabel();
+        JLabel jLabel4 = new JLabel();
+        JLabel jLabel5 = new JLabel();
+        JLabel jLabel6 = new JLabel();
         inggris = new javax.swing.JRadioButton();
         inggris2 = new javax.swing.JRadioButton();
         inggris3 = new javax.swing.JRadioButton();
         mandarin = new javax.swing.JRadioButton();
         mandarin2 = new javax.swing.JRadioButton();
         mandarin3 = new javax.swing.JRadioButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
+        JSeparator jSeparator2 = new JSeparator();
+        JSeparator jSeparator3 = new JSeparator();
         hokian = new javax.swing.JRadioButton();
         hokian2 = new javax.swing.JRadioButton();
         hokian3 = new javax.swing.JRadioButton();
         hakkan3 = new javax.swing.JRadioButton();
         hakkan2 = new javax.swing.JRadioButton();
         hakkan = new javax.swing.JRadioButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
+        JSeparator jSeparator4 = new JSeparator();
+        JLabel jLabel7 = new JLabel();
         bahasa_lain = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
+        JPanel jPanel3 = new JPanel();
+        JLabel jLabel8 = new JLabel();
+        JSeparator jSeparator5 = new JSeparator();
+        JLabel jLabel9 = new JLabel();
         nama_ayah = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        JLabel jLabel10 = new JLabel();
         kerja_ayah = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        JLabel jLabel11 = new JLabel();
         lahir_ayah = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        JLabel jLabel12 = new JLabel();
         tgl_ayah = new com.toedter.calendar.JDateChooser();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        JSeparator jSeparator6 = new JSeparator();
+        JSeparator jSeparator7 = new JSeparator();
+        JLabel jLabel13 = new JLabel();
+        JLabel jLabel14 = new JLabel();
+        JLabel jLabel15 = new JLabel();
+        JLabel jLabel16 = new JLabel();
         nama_sum_is = new javax.swing.JTextField();
         kerja_sum_is = new javax.swing.JTextField();
         lahir_ibu = new javax.swing.JTextField();
         tgl_ibu = new com.toedter.calendar.JDateChooser();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        JSeparator jSeparator8 = new JSeparator();
+        JSeparator jSeparator9 = new JSeparator();
+        JLabel jLabel17 = new JLabel();
+        JLabel jLabel18 = new JLabel();
         nama_ibu = new javax.swing.JTextField();
         kerja_ibu = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
+        JLabel jLabel19 = new JLabel();
         jum_anak = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
+        JLabel jLabel20 = new JLabel();
         umur_anak = new javax.swing.JTextField();
-        jSeparator10 = new javax.swing.JSeparator();
-        jLabel21 = new javax.swing.JLabel();
+        JSeparator jSeparator10 = new JSeparator();
+        JLabel jLabel21 = new JLabel();
         so_laki = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
+        JLabel jLabel22 = new JLabel();
         so_cewek = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
+        JLabel jLabel23 = new JLabel();
         anak_ke = new javax.swing.JTextField();
-        jSeparator11 = new javax.swing.JSeparator();
-        jLabel24 = new javax.swing.JLabel();
+        JSeparator jSeparator11 = new JSeparator();
+        JLabel jLabel24 = new JLabel();
         ahli_war = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
+        JLabel jLabel25 = new JLabel();
         hub_ahli_war = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JButton jButton1 = new JButton();
+        JButton jButton2 = new JButton();
 
         setBorder(null);
 
@@ -1017,6 +1030,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(WAIT_CURSOR));
         interview interview = new interview();
         this.getParent().add(interview);
         try {
@@ -1027,11 +1041,14 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
         interview.setVisible(true);
         input();
         this.setVisible(false);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(WAIT_CURSOR));
         cek();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -1039,10 +1056,6 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
     private javax.swing.JTextField ahli_war;
     private javax.swing.JTextField anak_ke;
     private javax.swing.JTextField bahasa_lain;
-    private javax.swing.ButtonGroup bhs_hakkan;
-    private javax.swing.ButtonGroup bhs_hokian;
-    private javax.swing.ButtonGroup bhs_inggris;
-    private javax.swing.ButtonGroup bhs_mandarin;
     private javax.swing.JRadioButton hakkan;
     private javax.swing.JRadioButton hakkan2;
     private javax.swing.JRadioButton hakkan3;
@@ -1053,47 +1066,7 @@ public class bahasa_keluarga extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton inggris;
     private javax.swing.JRadioButton inggris2;
     private javax.swing.JRadioButton inggris3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jum_anak;
     private javax.swing.JTextField kerja_ayah;
     private javax.swing.JTextField kerja_ibu;

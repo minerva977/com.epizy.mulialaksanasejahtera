@@ -1,5 +1,268 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga umur_anak" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga tgl_ibu" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga tgl_ayah" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga so_laki" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga so_cewek" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga nama_sum_is" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga nama_ibu" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga nama_ayah" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga mandarin3" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga mandarin2" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga mandarin" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga lahir_ibu" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga lahir_ayah" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga kerja_sum_is" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga kerja_ibu" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga kerja_ayah" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga jum_anak" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga jLabel1" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga inggris3" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga inggris2" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga inggris" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hub_ahli_war" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hokian3" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hokian2" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hokian" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hakkan3" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hakkan2" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga hakkan" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga bahasa_lain" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga anak_ke" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga ahli_war" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga$3 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga$2 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga$1 void mouseClicked(java.awt.event.MouseEvent evt)" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga par" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga itdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerAkun jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerConfig jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerConfig jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerFisik fisikList" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerFisik jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerFisik jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga informasiKeluargaList" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa kemampuanBahasaList" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerKerja kerjaList" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerKerja jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerKerja jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerPertanyaan pList" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerPertanyaan jInternalFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.Controller.controllerPertanyaan jFrame" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.data_diri_baru gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JInternalFrame.data_diri_terdaftar gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email subjek" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email pesan" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email jTextField2" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email jTextField1" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email$3$1 void windowClosing(java.awt.event.WindowEvent e)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email$3 void run()" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email$1 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email config" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.email gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar subjek" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar pesan" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar jTextField2" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar jTextField1" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar$3$1 void windowClosing(java.awt.event.WindowEvent e)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar$3 void run()" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar$1 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar config" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.DAOImpl.fisikDAOImpl selectWhere" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser no_reg" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser jDesktopPane1" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser$4 void run()" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser$3 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser$2 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser$1 void windowClosing(java.awt.event.WindowEvent evt)" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser ab" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar no_reg" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar jDesktopPane1" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar$5 void run()" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar$4 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar$3 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar$2 void actionPerformed(java.awt.event.ActionEvent evt)" />
+      <entry_point TYPE="method" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar$1 void windowClosing(java.awt.event.WindowEvent evt)" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar gdfdb" />
+      <entry_point TYPE="field" FQNAME="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar ab" />
+    </entry_points>
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.Abaut" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.Abaut" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Main" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Model.akun" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="bahasa_lainMouseClicked" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="initComponents" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="bhs4" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="bhs3" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="bhs2" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="bhs1" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="input" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="cek" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="clr" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" method="bahasa_keluarga" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.bahasa_keluarga" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.configDAOImpl" method="SendEmail" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.configDAOImpl" method="getImageFormWeb" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.configDAOImpl" method="configDAOImpl" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.configDAOImpl" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="searchByObject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="getAllDataFromTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="getNoRegistrasiFromTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="getToTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="setTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="reset" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" method="controllerAhliWaris" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAhliWaris" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="serchByObject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="update" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="save" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="getAllDataFromTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="getNoRegistrasiFromTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="getToTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="setTabel" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="reset" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" method="controllerAkun" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerAkun" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerConfig" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri" method="update" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri" method="save" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri" method="controllerDataDiri" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiri" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar" method="delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar" method="save" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar" method="controllerDataDiriTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerDataDiriTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerFisik" method="controllerFisik" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerFisik" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga" method="controllerInformasiKeluarga" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerInformasiKeluarga" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa" method="controllerKemampuanBahasa" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerKemampuanBahasa" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerKerja" method="controllerKerja" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerKerja" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPertanyaan" method="controllerPertanyaan" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPertanyaan" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPrint" method="iReportRekapData" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPrint" method="printIReportRekapData" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPrint" method="iReportPernyataan" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPrint" method="printIReportPernyataan" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Controller.controllerPrint" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.data_diri_baru" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.data_diri_terdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.email" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.email" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.email" method="initComponents" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.email" method="email" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.email" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar" method="initComponents" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar" method="email" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar" method="emailTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.emailTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.fisikDAO" method="GetDataByOject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.fisikDAO" method="Delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.fisikDAO" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.fisikDAOImpl" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameLogin" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameLogin" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameLogin" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameLogin" method="exitForm" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameLogin" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="jButton6ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="jButton5ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="jButton4ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="jButton3ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" method="exitForm" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameMain" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" method="exitForm" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" method="initComponents" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" method="frameUser" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUser" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="jButton3ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="exitForm" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="initComponents" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" method="frameUserTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JFrame.frameUserTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.home" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.home" method="jTextField1KeyReleased" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.home" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.homeTerdaftar" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.homeTerdaftar" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.homeTerdaftar" method="jTextField1KeyReleased" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.homeTerdaftar" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Model.informasiKeluarga" method="getTempatLahirIbu" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Model.informasiKeluarga" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.informasiKeluargaDAO" method="GetDataByOject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.informasiKeluargaDAO" method="Delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.informasiKeluargaDAO" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.interview" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.interview" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.interview" method="jTextField1KeyReleased" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.interview" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.kemampuanBahasaDAO" method="GetDataByOject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.kemampuanBahasaDAO" method="Delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.kemampuanBahasaDAO" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.kerjaDAO" method="GetDataByOject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.kerjaDAO" method="Delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.kerjaDAO" />
+    <pattern value="com.epizy.mulialaksanasejahtera.Model.negara" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.negaraDAO" method="GetDataByOject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.negaraDAO" method="GetAll" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.negaraDAO" method="Delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.negaraDAO" method="Update" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.negaraDAO" method="Save" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.negaraDAO" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.negaraDAOImpl" method="negaraDAOImpl" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAOImpl.negaraDAOImpl" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.negara_ket_fisik" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.negara_ket_fisik" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.negara_ket_fisik" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.pertanyaan" method="jButton2ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.pertanyaan" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.pertanyaan" method="copy" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JInternalFrame.pertanyaan" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.pertanyaanDAO" method="GetDataByOject" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.pertanyaanDAO" method="Delete" />
+    <pattern value="com.epizy.mulialaksanasejahtera.DAO.pertanyaanDAO" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.printTanggal" method="main" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.printTanggal" method="jButton1ActionPerformed" />
+    <pattern value="com.epizy.mulialaksanasejahtera.View.JDialog.printTanggal" />
+    <pattern value="com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAkun" method="tabelModelAkun" />
+    <pattern value="com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAkun" />
+    <pattern value="com.epizy.mulialaksanasejahtera.TabelModel.tabelModelFisik" method="tabelModelFisik" />
+    <pattern value="com.epizy.mulialaksanasejahtera.TabelModel.tabelModelFisik" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

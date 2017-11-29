@@ -10,14 +10,16 @@ import java.util.List;
 public class controllerInformasiKeluarga {
     JFrame jFrame;
     JInternalFrame jInternalFrame;
-    informasiKeluargaDAO informasiKeluargaDAO;
-    List<informasiKeluarga> informasiKeluargaList;
+    final informasiKeluargaDAO informasiKeluargaDAO;
+    final List<informasiKeluarga> informasiKeluargaList;
 
-    public controllerInformasiKeluarga(JFrame jFrame) {
-        this.jFrame = jFrame;
-        informasiKeluargaDAO = new informasiKeluargaDAOImpl();
-        informasiKeluargaList = informasiKeluargaDAO.GetAll();
-    }
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
+//    public controllerInformasiKeluarga(JFrame jFrame) {
+//        this.jFrame = jFrame;
+//        informasiKeluargaDAO = new informasiKeluargaDAOImpl();
+//        informasiKeluargaList = informasiKeluargaDAO.GetAll();
+//    }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
     public controllerInformasiKeluarga(JInternalFrame jInternalFrame) {
         this.jInternalFrame = jInternalFrame;

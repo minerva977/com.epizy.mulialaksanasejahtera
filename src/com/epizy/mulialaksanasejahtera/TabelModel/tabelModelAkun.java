@@ -5,8 +5,9 @@ import com.epizy.mulialaksanasejahtera.Model.akun;
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
+ //--Commented out by Inspection START (25/11/2017 12.44.33 PM):
 public class tabelModelAkun extends AbstractTableModel {
-    List<akun> akunList;
+    final List<akun> akunList;
 
     public tabelModelAkun(List<akun> akuns) {
         this.akunList = akuns;
@@ -49,3 +50,4 @@ public class tabelModelAkun extends AbstractTableModel {
         }
     }
 }
+ //--Commented out by Inspection STOP (25/11/2017 12.44.33 PM)

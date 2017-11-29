@@ -12,43 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class dataDiriDAOImpl implements dataDiriDAO {
-    private final String insert = "INSERT INTO `data_pribadi`\n" +
-            "(`no_reg`, `tgl`, `kelamin`, `pot_gaji`, `no_ktp`\n" +
-            ", `tempat_ktp_dibuat`, `tgl_ktp_dibuat`, `nama`, `usia`, `alamat`\n" +
-            ", `desa/kel`, `kecamatan`, `kab/kota`, `propinsi`, `tempat_lahir`\n" +
-            ", `tgl_lahir`, `no_tlpn`, `no_hp/flexy`, `tinggi_badan`, `berat_badan`\n" +
-            ", `setatus`, `tgl_setatus`, `pendidikan`, `agama`, `foto`\n" +
-            ", `email`, `keterampilan_kusus`) \n" +
-            "VALUES \n" +
-            "(?,?,?,?,?\n" +
-            ",?,?,?,?,?\n" +
-            ",?,?,?,?,?\n" +
-            ",?,?,?,?,?\n" +
-            ",?,?,?,?,?\n" +
-            ",?,?)";
-    private final String update = "UPDATE `data_pribadi` \n" +
-            "SET \n" +
-            "`tgl`=?,`kelamin`=?,`pot_gaji`=?,`no_ktp`=?,`tempat_ktp_dibuat`=?\n" +
-            ",`tgl_ktp_dibuat`=?,`nama`=?,`usia`=?,`alamat`=?,`desa/kel`=?\n" +
-            ",`kecamatan`=?,`kab/kota`=?,`propinsi`=?,`tempat_lahir`=?,`tgl_lahir`=?\n" +
-            ",`no_tlpn`=?,`no_hp/flexy`=?,`tinggi_badan`=?,`berat_badan`=?,`setatus`=?\n" +
-            ",`tgl_setatus`=?,`pendidikan`=?,`agama`=?,`foto`=?,`email`=?\n" +
-            ",`keterampilan_kusus`=? \n" +
-            "WHERE \n" +
-            "`no_reg`=?";
-    private final String delete = "DELETE FROM `data_pribadi` WHERE `no_reg`=?";
-    private final String select = "SELECT * FROM `data_pribadi`";
-    private final String selectWhere = "SELECT * \n" +
-            "FROM\n" +
-            "`data_pribadi` \n" +
-            "WHERE\n" +
-            "`no_reg` like ? OR `tgl` like ? OR `kelamin` like ? OR `pot_gaji` like ? OR `no_ktp` like ? OR\n" +
-            "`tempat_ktp_dibuat` like ? OR `tgl_ktp_dibuat` like ? OR `nama` like ? OR `usia` like ? OR `alamat` like ? OR\n" +
-            "`desa/kel` like ? OR `kecamatan` like ? OR `kab/kota` like ? OR `propinsi` like ? OR `tempat_lahir` like ? OR\n" +
-            "`tgl_lahir` like ? OR `no_tlpn` like ? OR `no_hp/flexy` like ? OR `tinggi_badan` like ? OR `berat_badan` like ? OR\n"+
-            "`setatus` like ? OR `tgl_setatus` like ? OR `pendidikan` like ? OR `agama` like ? OR `foto` like ? OR\n" +
-            "`email` like ? OR `keterampilan_kusus` like ?";
-    private Connection connection;
+    private final Connection connection;
 
     public dataDiriDAOImpl(){
         connection = dataBaseConncetionFactory.getConnection();
@@ -58,6 +22,20 @@ public class dataDiriDAOImpl implements dataDiriDAO {
     public void Save(dataDiri dataDiri) {
         PreparedStatement preparedStatement = null;
         try {
+            String insert = "INSERT INTO `data_pribadi`\n" +
+                    "(`no_reg`, `tgl`, `kelamin`, `pot_gaji`, `no_ktp`\n" +
+                    ", `tempat_ktp_dibuat`, `tgl_ktp_dibuat`, `nama`, `usia`, `alamat`\n" +
+                    ", `desa/kel`, `kecamatan`, `kab/kota`, `propinsi`, `tempat_lahir`\n" +
+                    ", `tgl_lahir`, `no_tlpn`, `no_hp/flexy`, `tinggi_badan`, `berat_badan`\n" +
+                    ", `setatus`, `tgl_setatus`, `pendidikan`, `agama`, `foto`\n" +
+                    ", `email`, `keterampilan_kusus`) \n" +
+                    "VALUES \n" +
+                    "(?,?,?,?,?\n" +
+                    ",?,?,?,?,?\n" +
+                    ",?,?,?,?,?\n" +
+                    ",?,?,?,?,?\n" +
+                    ",?,?,?,?,?\n" +
+                    ",?,?)";
             preparedStatement = connection.prepareStatement(insert);
             preparedStatement.setString(1,dataDiri.getNoRegistrasi());
             preparedStatement.setString(2,dataDiri.getTanggal());
@@ -93,6 +71,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -105,6 +84,16 @@ public class dataDiriDAOImpl implements dataDiriDAO {
     public void Update(dataDiri dataDiri) {
         PreparedStatement preparedStatement = null;
         try {
+            String update = "UPDATE `data_pribadi` \n" +
+                    "SET \n" +
+                    "`tgl`=?,`kelamin`=?,`pot_gaji`=?,`no_ktp`=?,`tempat_ktp_dibuat`=?\n" +
+                    ",`tgl_ktp_dibuat`=?,`nama`=?,`usia`=?,`alamat`=?,`desa/kel`=?\n" +
+                    ",`kecamatan`=?,`kab/kota`=?,`propinsi`=?,`tempat_lahir`=?,`tgl_lahir`=?\n" +
+                    ",`no_tlpn`=?,`no_hp/flexy`=?,`tinggi_badan`=?,`berat_badan`=?,`setatus`=?\n" +
+                    ",`tgl_setatus`=?,`pendidikan`=?,`agama`=?,`foto`=?,`email`=?\n" +
+                    ",`keterampilan_kusus`=? \n" +
+                    "WHERE \n" +
+                    "`no_reg`=?";
             preparedStatement = connection.prepareStatement(update);
             preparedStatement.setString(1,dataDiri.getTanggal());
             preparedStatement.setString(2,dataDiri.getKelamin());
@@ -140,6 +129,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -152,6 +142,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
     public void Delete(Object object) {
         PreparedStatement preparedStatement = null;
         try {
+            String delete = "DELETE FROM `data_pribadi` WHERE `no_reg`=?";
             preparedStatement = connection.prepareStatement(delete);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.executeUpdate();
@@ -161,6 +152,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -174,6 +166,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         List<dataDiri> dataDiriList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String select = "SELECT * FROM `data_pribadi`";
             preparedStatement = connection.prepareStatement(select);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -213,6 +206,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         finally {
             if (connection != null){
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -227,6 +221,16 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         List<dataDiri> dataDiriList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String selectWhere = "SELECT * \n" +
+                    "FROM\n" +
+                    "`data_pribadi` \n" +
+                    "WHERE\n" +
+                    "`no_reg` like ? OR `tgl` like ? OR `kelamin` like ? OR `pot_gaji` like ? OR `no_ktp` like ? OR\n" +
+                    "`tempat_ktp_dibuat` like ? OR `tgl_ktp_dibuat` like ? OR `nama` like ? OR `usia` like ? OR `alamat` like ? OR\n" +
+                    "`desa/kel` like ? OR `kecamatan` like ? OR `kab/kota` like ? OR `propinsi` like ? OR `tempat_lahir` like ? OR\n" +
+                    "`tgl_lahir` like ? OR `no_tlpn` like ? OR `no_hp/flexy` like ? OR `tinggi_badan` like ? OR `berat_badan` like ? OR\n" +
+                    "`setatus` like ? OR `tgl_setatus` like ? OR `pendidikan` like ? OR `agama` like ? OR `foto` like ? OR\n" +
+                    "`email` like ? OR `keterampilan_kusus` like ?";
             preparedStatement = connection.prepareStatement(selectWhere);
             preparedStatement.setString(1, "%"+String.valueOf(object)+"%");
             preparedStatement.setString(2, "%"+String.valueOf(object)+"%");
@@ -293,6 +297,7 @@ public class dataDiriDAOImpl implements dataDiriDAO {
         finally {
             if (connection != null){
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();

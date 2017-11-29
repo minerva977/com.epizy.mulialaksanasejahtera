@@ -10,29 +10,34 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
 import javax.swing.*;
+import java.awt.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 
+@SuppressWarnings("ALL")
 public class configDAOImpl implements configDAO {
 
     public configDAOImpl() {
 
     }
 
+    @SuppressWarnings("ThrowablePrintedToSystemOut")
     @Override
     public void getImageFormWeb(String Name, JLabel jLabel) {
          try{
              //set URL
-             //http://mulialaksanasejahtera.epizy.com/menu/daftar.php
-            URL url=new URL("http://mulialaksanasejahtera.epizy.com/foto/"+Name);
+             String patch = "https://ptmls.000webhostapp.com/foto/"+Name;
+            URL url = new URL(patch);
             String xhtml;
             //set Model Iamge
-            xhtml="<html>"
-                    + "<img src='"+url+"'border= '5px' width='260' height='400'>"
+            xhtml = "<html>"
+                    + "<img src='"+url+"' border='5px' width='260' height='400'>"
                     + "</html>";
             //Set Ke Label
             jLabel.setText(xhtml);
-        }catch(Exception e){
-            System.out.println(e);
+        }catch(MalformedURLException e){
+             //noinspection ThrowablePrintedToSystemOut
+             System.out.println(e);
         }
     }
     
@@ -45,6 +50,7 @@ public class configDAOImpl implements configDAO {
     * listObjects.get(5) = Subjek Email
     * listObjects.get(6) = Pesan Email
     */
+    @SuppressWarnings("deprecation")
     @Override
     public void SendEmail(String [] Object) {
         //deklarasi variabel
@@ -53,6 +59,7 @@ public class configDAOImpl implements configDAO {
         //konfigurasi email
         email.setHostName("smtp.googlemail.com");
         email.setSmtpPort(587);
+        //noinspection deprecation
         email.setSSL(true);
         email.setAuthentication(Object[1], Object[2]);
         email.setSSLOnConnect(true);
@@ -78,5 +85,19 @@ public class configDAOImpl implements configDAO {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Pesan Gagal Terkirim");
         }
+    }
+    
+    @Override
+    public void setIcon (JFrame jFrame) {
+        String patch;
+        patch = "/com/epizy/mulialaksanasejahtera/icon/icons8-technical-support-30.png";
+        jFrame.setIconImage(new ImageIcon(getClass().getResource(patch)).getImage());
+    }
+    
+    @Override
+    public void setIcon (Frame frame) {
+        String patch;
+        patch = "/com/epizy/mulialaksanasejahtera/icon/icons8-technical-support-30.png";
+        frame.setIconImage(new ImageIcon(getClass().getResource(patch)).getImage());
     }
 }

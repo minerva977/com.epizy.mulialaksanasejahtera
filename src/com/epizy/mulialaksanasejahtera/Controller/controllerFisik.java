@@ -10,14 +10,16 @@ import java.util.List;
 public class controllerFisik {
     JFrame jFrame;
     JInternalFrame jInternalFrame;
-    fisikDAO fisikDAO;
-    List<fisik> fisikList;
+    final fisikDAO fisikDAO;
+    final List<fisik> fisikList;
 
-    public controllerFisik (JFrame jFrame) {
-        this.jFrame =jFrame;
-        fisikDAO = new fisikDAOImpl();
-        fisikList = fisikDAO.GetAll();
-    }
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
+//    public controllerFisik (JFrame jFrame) {
+//        this.jFrame =jFrame;
+//        fisikDAO = new fisikDAOImpl();
+//        fisikList = fisikDAO.GetAll();
+//    }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
     public controllerFisik (JInternalFrame jInternalFrame) {
         this.jInternalFrame = jInternalFrame;

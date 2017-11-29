@@ -12,12 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class akunDAOImpl implements akunDAO {
-    private final String insert = "INSERT INTO `akun`(`no_reg`, `username`, `password`) VALUES (?,?,?)";
-    private final String update = "UPDATE `akun` SET `username`=?,`password`=? WHERE `no_reg`=?";
-    private final String delete = "DELETE FROM `akun` WHERE `no_reg`=?";
-    private final String select = "SELECT * FROM `akun`";
-    private final String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE ? OR `username` LIKE ? OR `username` LIKE ?";
-    private Connection connection;
+    private final Connection connection;
 
     public akunDAOImpl(){
         connection = dataBaseConncetionFactory.getConnection();
@@ -27,6 +22,7 @@ public class akunDAOImpl implements akunDAO {
     public void Save(akun akun) {
         PreparedStatement preparedStatement = null;
         try {
+            String insert = "INSERT INTO `akun`(`no_reg`, `username`, `password`) VALUES (?,?,?)";
             preparedStatement = connection.prepareStatement(insert);
             preparedStatement.setString(1,akun.getNoRegistrasi());
             preparedStatement.setString(2,akun.getUsername());
@@ -38,6 +34,7 @@ public class akunDAOImpl implements akunDAO {
         finally {
             if(connection != null){
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -50,6 +47,7 @@ public class akunDAOImpl implements akunDAO {
     public void Update(akun akun) {
         PreparedStatement preparedStatement = null;
         try {
+            String update = "UPDATE `akun` SET `username`=?,`password`=? WHERE `no_reg`=?";
             preparedStatement = connection.prepareStatement(update);
             preparedStatement.setString(1,akun.getUsername());
             preparedStatement.setString(2,akun.getPassword());
@@ -61,6 +59,7 @@ public class akunDAOImpl implements akunDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -73,6 +72,7 @@ public class akunDAOImpl implements akunDAO {
     public void Delete(Object object) {
         PreparedStatement preparedStatement = null;
         try {
+            String delete = "DELETE FROM `akun` WHERE `no_reg`=?";
             preparedStatement = connection.prepareStatement(delete);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.executeUpdate();
@@ -82,6 +82,7 @@ public class akunDAOImpl implements akunDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -95,6 +96,7 @@ public class akunDAOImpl implements akunDAO {
         List<akun> akunList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String select = "SELECT * FROM `akun`";
             preparedStatement = connection.prepareStatement(select);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -110,6 +112,7 @@ public class akunDAOImpl implements akunDAO {
         finally {
             if (connection != null){
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -124,6 +127,7 @@ public class akunDAOImpl implements akunDAO {
         List<akun> akunList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE ? OR `username` LIKE ? OR `username` LIKE ?";
             preparedStatement = connection.prepareStatement(selectWhere);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.setString(2, String.valueOf(object));
@@ -142,6 +146,7 @@ public class akunDAOImpl implements akunDAO {
         finally {
             if (connection != null){
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();

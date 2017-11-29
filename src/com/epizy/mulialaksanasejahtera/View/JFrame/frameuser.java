@@ -5,6 +5,7 @@
  */
 package com.epizy.mulialaksanasejahtera.View.JFrame;
 
+import com.epizy.mulialaksanasejahtera.Controller.controllerConfig;
 import com.epizy.mulialaksanasejahtera.View.JDialog.email;
 import com.epizy.mulialaksanasejahtera.View.JInternalFrame.data_diri_baru;
 import com.epizy.mulialaksanasejahtera.View.JInternalFrame.home;
@@ -16,6 +17,7 @@ import java.awt.*;
  *
  * @author Nier
  */
+@SuppressWarnings("ALL")
 public class frameUser extends java.awt.Frame {
 
     /**
@@ -23,6 +25,7 @@ public class frameUser extends java.awt.Frame {
      */
     AutoBot ab=new AutoBot();
     GetDataFromDB gdfdb=new GetDataFromDB();
+    @SuppressWarnings("ThrowablePrintedToSystemOut")
     public frameUser() {
         this.setUndecorated(true);
         this.setMinimumSize(new Dimension(Frame.MAXIMIZED_HORIZ,Frame.MAXIMIZED_VERT));
@@ -33,10 +36,11 @@ public class frameUser extends java.awt.Frame {
         data_diri_baru datdir=new data_diri_baru();
         jDesktopPane1.add(datdir);
         datdir.setVisible(true);
-        
+        new controllerConfig().setIcon(this);
         try{
             datdir.setMaximum(true);
         }catch(Exception e){
+            //noinspection ThrowablePrintedToSystemOut
             System.out.println(e);
         }
         
@@ -50,12 +54,12 @@ public class frameUser extends java.awt.Frame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel12 = new javax.swing.JLabel();
         no_reg = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        javax.swing.JButton jButton1 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jButton2 = new javax.swing.JButton();
+        javax.swing.JButton jButton2 = new javax.swing.JButton();
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -145,13 +149,17 @@ public class frameUser extends java.awt.Frame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.WAIT_CURSOR);
         this.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.WAIT_CURSOR);
         email em=new email(this,true,home.par);
         em.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -166,12 +174,7 @@ public class frameUser extends java.awt.Frame {
     }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel no_reg;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

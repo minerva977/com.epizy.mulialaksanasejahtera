@@ -25,8 +25,8 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
      * Creates new form data_diri_baru
      */
     GetDataFromDB gdfdb=new GetDataFromDB();
-    controllerConfig config = new controllerConfig();
-    public String parameter=homeTerdaftar.par;
+    final controllerConfig config = new controllerConfig();
+    public final String parameter=homeTerdaftar.par;
     public data_diri_terdaftar() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
@@ -82,6 +82,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         finally {
             if (dataBaseConncetionFactory.getConnection() != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -110,6 +111,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         finally {
             if(dataBaseConncetionFactory.getConnection() != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -142,11 +144,12 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
                 jumPere.setText(resultSet.getString(15));
                 anakKe.setText(resultSet.getString(16));
             }
-        } catch (SQLException e) {
+        } catch (SQLException ignored) {
         }
         finally {
             if(dataBaseConncetionFactory.getConnection() != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -172,6 +175,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         finally {
             if(dataBaseConncetionFactory.getConnection() != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -207,6 +211,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         finally {
             if(dataBaseConncetionFactory.getConnection() != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -217,7 +222,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
     
     private void kerja (String par) {
         String sql = "SELECT * FROM `kerja` WHERE `no_reg` = ?";
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         try {
             preparedStatement = dataBaseConncetionFactory.getConnection().prepareStatement(sql);
             preparedStatement.setString(1, par);
@@ -233,7 +238,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
     
     private void pernyataan (String par) {
         String sql = "SELECT * FROM `pertanyaan` WHERE `no_reg` = ?";
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement;
         try {
             preparedStatement = dataBaseConncetionFactory.getConnection().prepareStatement(sql);
             preparedStatement.setString(1, par);
@@ -258,36 +263,36 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel4 = new javax.swing.JPanel();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
         kelamin = new javax.swing.JLabel();
         alamat = new javax.swing.JLabel();
         kab_kota = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel10 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel11 = new javax.swing.JLabel();
         tgl_ktp = new javax.swing.JLabel();
         desa_kel = new javax.swing.JLabel();
         kecamatan = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel13 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel14 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel15 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel16 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel17 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel18 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
         no_ktp = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel9 = new javax.swing.JLabel();
         tempat_ktp = new javax.swing.JLabel();
         propinsi = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel19 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel20 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel21 = new javax.swing.JLabel();
         tgl_lahir = new javax.swing.JLabel();
         no_tlp = new javax.swing.JLabel();
         no_hp = new javax.swing.JLabel();
@@ -297,50 +302,50 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         tgl_setatus = new javax.swing.JLabel();
         pendidikan = new javax.swing.JLabel();
         agama = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
+        javax.swing.JSeparator jSeparator2 = new javax.swing.JSeparator();
         nama = new javax.swing.JLabel();
         usia = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel22 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel23 = new javax.swing.JLabel();
         tempat_lahir = new javax.swing.JLabel();
         gaji = new javax.swing.JLabel();
         gambar = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
         ket = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel12 = new javax.swing.JLabel();
         email = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel24 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator1 = new javax.swing.JSeparator();
+        javax.swing.JLabel jLabel24 = new javax.swing.JLabel();
         inggris = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel26 = new javax.swing.JLabel();
         mandarin = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel28 = new javax.swing.JLabel();
         hakkan = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel30 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel31 = new javax.swing.JLabel();
         lain = new javax.swing.JLabel();
         hokian = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel6 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel34 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator4 = new javax.swing.JSeparator();
+        javax.swing.JLabel jLabel35 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel36 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel37 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel38 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel39 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel40 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel41 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel42 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel43 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel44 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel45 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel46 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel47 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel48 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel49 = new javax.swing.JLabel();
         nBapak = new javax.swing.JLabel();
         pBapak = new javax.swing.JLabel();
         tmpBapak = new javax.swing.JLabel();
@@ -356,42 +361,42 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         jumLaki = new javax.swing.JLabel();
         jumPere = new javax.swing.JLabel();
         anakKe = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel50 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel25 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel50 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator3 = new javax.swing.JSeparator();
+        javax.swing.JLabel jLabel25 = new javax.swing.JLabel();
         nAhliWaris = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel27 = new javax.swing.JLabel();
         hAhliWaris = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel32 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel7 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel29 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator5 = new javax.swing.JSeparator();
+        javax.swing.JLabel jLabel32 = new javax.swing.JLabel();
         merokok = new javax.swing.JLabel();
         ketMerokok = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel52 = new javax.swing.JLabel();
         alkohol = new javax.swing.JLabel();
         ketAlkohol = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel55 = new javax.swing.JLabel();
         tatto = new javax.swing.JLabel();
         ketTatto = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel58 = new javax.swing.JLabel();
         buta = new javax.swing.JLabel();
         ketButa = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel61 = new javax.swing.JLabel();
         rabun = new javax.swing.JLabel();
         ketRabun = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel64 = new javax.swing.JLabel();
         alergi = new javax.swing.JLabel();
         ketAlergi = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel51 = new javax.swing.JLabel();
+        javax.swing.JPanel jPanel8 = new javax.swing.JPanel();
+        javax.swing.JLabel jLabel33 = new javax.swing.JLabel();
+        javax.swing.JSeparator jSeparator6 = new javax.swing.JSeparator();
+        javax.swing.JLabel jLabel51 = new javax.swing.JLabel();
         negaraTujuan = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel53 = new javax.swing.JLabel();
         keterampilan = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
+        javax.swing.JPanel jPanel9 = new javax.swing.JPanel();
         pernyataan = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
@@ -405,164 +410,164 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Kelamin :");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Alamat :");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Propinsi :");
 
-        kelamin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        kelamin.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         kelamin.setForeground(new java.awt.Color(0, 0, 0));
         kelamin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         kelamin.setText("isi data");
 
-        alamat.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        alamat.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         alamat.setForeground(new java.awt.Color(0, 0, 0));
         alamat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         alamat.setText("isi data");
 
-        kab_kota.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        kab_kota.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         kab_kota.setForeground(new java.awt.Color(0, 0, 0));
         kab_kota.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         kab_kota.setText("isi data");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Kabupaten/Kota :");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Tanggal KTP Dibuat :");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Desa/Kelurahan :");
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Kecamatan :");
 
-        tgl_ktp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tgl_ktp.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tgl_ktp.setForeground(new java.awt.Color(0, 0, 0));
         tgl_ktp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tgl_ktp.setText("isi data");
 
-        desa_kel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        desa_kel.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         desa_kel.setForeground(new java.awt.Color(0, 0, 0));
         desa_kel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         desa_kel.setText("isi data");
 
-        kecamatan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        kecamatan.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         kecamatan.setForeground(new java.awt.Color(0, 0, 0));
         kecamatan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         kecamatan.setText("isi data");
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Tanggal Lahir :");
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("No. Telepon :");
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("No. HP/Flexy :");
 
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Tinggi Badan :");
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Berat Badan :");
 
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Setatus :");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("No KTP :");
 
-        no_ktp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        no_ktp.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         no_ktp.setForeground(new java.awt.Color(0, 0, 0));
         no_ktp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         no_ktp.setText("isi data");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Tempat KTP Dibuat :");
 
-        tempat_ktp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tempat_ktp.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tempat_ktp.setForeground(new java.awt.Color(0, 0, 0));
         tempat_ktp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tempat_ktp.setText("isi data");
 
-        propinsi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        propinsi.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         propinsi.setForeground(new java.awt.Color(0, 0, 0));
         propinsi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         propinsi.setText("isi data");
 
-        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Tanggal Setatus :");
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("Pendidikan Teraakhir :");
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Agama :");
 
-        tgl_lahir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tgl_lahir.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tgl_lahir.setForeground(new java.awt.Color(0, 0, 0));
         tgl_lahir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tgl_lahir.setText("isi data");
 
-        no_tlp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        no_tlp.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         no_tlp.setForeground(new java.awt.Color(0, 0, 0));
         no_tlp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         no_tlp.setText("isi data");
 
-        no_hp.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        no_hp.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         no_hp.setForeground(new java.awt.Color(0, 0, 0));
         no_hp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         no_hp.setText("isi data");
 
-        tinggi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tinggi.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tinggi.setForeground(new java.awt.Color(0, 0, 0));
         tinggi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tinggi.setText("isi data");
 
-        berat.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        berat.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         berat.setForeground(new java.awt.Color(0, 0, 0));
         berat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         berat.setText("isi data");
 
-        setatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        setatus.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         setatus.setForeground(new java.awt.Color(0, 0, 0));
         setatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         setatus.setText("isi data");
 
-        tgl_setatus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tgl_setatus.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tgl_setatus.setForeground(new java.awt.Color(0, 0, 0));
         tgl_setatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tgl_setatus.setText("isi data");
 
-        pendidikan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        pendidikan.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         pendidikan.setForeground(new java.awt.Color(0, 0, 0));
         pendidikan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pendidikan.setText("isi data");
 
-        agama.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        agama.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         agama.setForeground(new java.awt.Color(0, 0, 0));
         agama.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         agama.setText("isi data");
@@ -570,30 +575,30 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
 
-        nama.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nama.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         nama.setForeground(new java.awt.Color(0, 0, 0));
         nama.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nama.setText("Data Diri");
 
-        usia.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        usia.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         usia.setForeground(new java.awt.Color(0, 0, 0));
         usia.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         usia.setText("isi data");
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Usia :");
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("Tempat Lahir :");
 
-        tempat_lahir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tempat_lahir.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tempat_lahir.setForeground(new java.awt.Color(0, 0, 0));
         tempat_lahir.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tempat_lahir.setText("isi data");
 
-        gaji.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        gaji.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         gaji.setForeground(new java.awt.Color(0, 0, 0));
         gaji.setText("Tempat Lahir :");
 
@@ -785,19 +790,19 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Pernah mengikuti Pendidikan Non Formal/ Sertifikat Ketrampilan /kursus :");
 
-        ket.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ket.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ket.setForeground(new java.awt.Color(0, 0, 0));
         ket.setText("jLabel2");
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Email :");
 
-        email.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        email.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         email.setForeground(new java.awt.Color(0, 0, 0));
         email.setText("jLabel65");
 
@@ -837,7 +842,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Kealihan Bahasa");
@@ -845,47 +850,47 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Bahasa Inggirs :");
 
-        inggris.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        inggris.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         inggris.setForeground(new java.awt.Color(0, 0, 0));
         inggris.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         inggris.setText("isi data");
 
-        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Bahasa Mandarin :");
 
-        mandarin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        mandarin.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         mandarin.setForeground(new java.awt.Color(0, 0, 0));
         mandarin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         mandarin.setText("isi data");
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("Bahasa Hakka :");
 
-        hakkan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        hakkan.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         hakkan.setForeground(new java.awt.Color(0, 0, 0));
         hakkan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         hakkan.setText("isi data");
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Bahasa Hokian :");
 
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("Bahasa Lain :");
 
-        lain.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lain.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         lain.setForeground(new java.awt.Color(0, 0, 0));
         lain.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lain.setText("isi data");
 
-        hokian.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        hokian.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         hokian.setForeground(new java.awt.Color(0, 0, 0));
         hokian.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         hokian.setText("isi data");
@@ -961,7 +966,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel6.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel34.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(0, 0, 0));
         jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel34.setText("Infromasi Keluarga");
@@ -969,137 +974,137 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel35.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(0, 0, 0));
         jLabel35.setText("Nama Bapak :");
 
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(0, 0, 0));
         jLabel36.setText("Pekerjaan :");
 
-        jLabel37.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("Tempat Lahir :");
 
-        jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel38.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("Tanggal Lahir :");
 
-        jLabel39.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel39.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(0, 0, 0));
         jLabel39.setText("Nama Bapak :");
 
-        jLabel40.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel40.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("Pekerjaan :");
 
-        jLabel41.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel41.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(0, 0, 0));
         jLabel41.setText("Tempat Lahir :");
 
-        jLabel42.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel42.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setText("Tanggal Lahir :");
 
-        jLabel43.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel43.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("Nama Suami/Istri :");
 
-        jLabel44.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel44.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(0, 0, 0));
         jLabel44.setText("Pekerjaan :");
 
-        jLabel45.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel45.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setText("Jumlah Anak :");
 
-        jLabel46.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel46.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(0, 0, 0));
         jLabel46.setText("Umur Masing-Masing :");
 
-        jLabel47.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel47.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(0, 0, 0));
         jLabel47.setText("Jumlah Saudara Laki-Laki :");
 
-        jLabel48.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel48.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(0, 0, 0));
         jLabel48.setText("Jumlah Saudara Perempuan :");
 
-        jLabel49.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel49.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jLabel49.setText("Saya Anak Ke :");
 
-        nBapak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nBapak.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         nBapak.setForeground(new java.awt.Color(0, 0, 0));
         nBapak.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nBapak.setText("isi data");
 
-        pBapak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        pBapak.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         pBapak.setForeground(new java.awt.Color(0, 0, 0));
         pBapak.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pBapak.setText("isi data");
 
-        tmpBapak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tmpBapak.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tmpBapak.setForeground(new java.awt.Color(0, 0, 0));
         tmpBapak.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tmpBapak.setText("isi data");
 
-        tglBapak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tglBapak.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tglBapak.setForeground(new java.awt.Color(0, 0, 0));
         tglBapak.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tglBapak.setText("isi data");
 
-        tglIbu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tglIbu.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tglIbu.setForeground(new java.awt.Color(0, 0, 0));
         tglIbu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tglIbu.setText("isi data");
 
-        tmpIbu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tmpIbu.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tmpIbu.setForeground(new java.awt.Color(0, 0, 0));
         tmpIbu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         tmpIbu.setText("isi data");
 
-        pIbu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        pIbu.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         pIbu.setForeground(new java.awt.Color(0, 0, 0));
         pIbu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pIbu.setText("isi data");
 
-        nIbu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nIbu.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         nIbu.setForeground(new java.awt.Color(0, 0, 0));
         nIbu.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nIbu.setText("isi data");
 
-        pSumIs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        pSumIs.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         pSumIs.setForeground(new java.awt.Color(0, 0, 0));
         pSumIs.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pSumIs.setText("isi data");
 
-        nSumIs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nSumIs.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         nSumIs.setForeground(new java.awt.Color(0, 0, 0));
         nSumIs.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nSumIs.setText("isi data");
 
-        jumAnak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jumAnak.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jumAnak.setForeground(new java.awt.Color(0, 0, 0));
         jumAnak.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jumAnak.setText("isi data");
 
-        umurAnak.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        umurAnak.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         umurAnak.setForeground(new java.awt.Color(0, 0, 0));
         umurAnak.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         umurAnak.setText("isi data");
 
-        jumLaki.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jumLaki.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jumLaki.setForeground(new java.awt.Color(0, 0, 0));
         jumLaki.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jumLaki.setText("isi data");
 
-        jumPere.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jumPere.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jumPere.setForeground(new java.awt.Color(0, 0, 0));
         jumPere.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jumPere.setText("isi data");
 
-        anakKe.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        anakKe.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         anakKe.setForeground(new java.awt.Color(0, 0, 0));
         anakKe.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         anakKe.setText("isi data");
@@ -1262,7 +1267,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel5.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel50.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel50.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(0, 0, 0));
         jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel50.setText("Ahli Waris");
@@ -1270,20 +1275,20 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel25.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("Nama Ahli Waris :");
 
-        nAhliWaris.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        nAhliWaris.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         nAhliWaris.setForeground(new java.awt.Color(0, 0, 0));
         nAhliWaris.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nAhliWaris.setText("isiData");
 
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Hubungan Ahli Waris :");
 
-        hAhliWaris.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        hAhliWaris.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         hAhliWaris.setForeground(new java.awt.Color(0, 0, 0));
         hAhliWaris.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         hAhliWaris.setText("Hubungan Ahli Waris :");
@@ -1325,87 +1330,87 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel7.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Keterangan Fisik");
 
         jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("Merokok");
 
-        merokok.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        merokok.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         merokok.setForeground(new java.awt.Color(0, 0, 0));
         merokok.setText("isiData");
 
-        ketMerokok.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ketMerokok.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ketMerokok.setForeground(new java.awt.Color(0, 0, 0));
         ketMerokok.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ketMerokok.setText("isiDataKeterangan");
 
-        jLabel52.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel52.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
         jLabel52.setText("Alkohol");
 
-        alkohol.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        alkohol.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         alkohol.setForeground(new java.awt.Color(0, 0, 0));
         alkohol.setText("isiData");
 
-        ketAlkohol.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ketAlkohol.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ketAlkohol.setForeground(new java.awt.Color(0, 0, 0));
         ketAlkohol.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ketAlkohol.setText("isiDataKeterangan");
 
-        jLabel55.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel55.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("Bertatto");
 
-        tatto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tatto.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         tatto.setForeground(new java.awt.Color(0, 0, 0));
         tatto.setText("isiData");
 
-        ketTatto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ketTatto.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ketTatto.setForeground(new java.awt.Color(0, 0, 0));
         ketTatto.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ketTatto.setText("isiDataKeterangan");
 
-        jLabel58.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel58.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setText("Buta Warna");
 
-        buta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        buta.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         buta.setForeground(new java.awt.Color(0, 0, 0));
         buta.setText("isiData");
 
-        ketButa.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ketButa.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ketButa.setForeground(new java.awt.Color(0, 0, 0));
         ketButa.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ketButa.setText("isiDataKeterangan");
 
-        jLabel61.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel61.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(0, 0, 0));
         jLabel61.setText("Rabun");
 
-        rabun.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        rabun.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         rabun.setForeground(new java.awt.Color(0, 0, 0));
         rabun.setText("isiData");
 
-        ketRabun.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ketRabun.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ketRabun.setForeground(new java.awt.Color(0, 0, 0));
         ketRabun.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ketRabun.setText("isiDataKeterangan");
 
-        jLabel64.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel64.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel64.setForeground(new java.awt.Color(0, 0, 0));
         jLabel64.setText("Alergi");
 
-        alergi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        alergi.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         alergi.setForeground(new java.awt.Color(0, 0, 0));
         alergi.setText("isiData");
 
-        ketAlergi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ketAlergi.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         ketAlergi.setForeground(new java.awt.Color(0, 0, 0));
         ketAlergi.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ketAlergi.setText("isiDataKeterangan");
@@ -1502,27 +1507,27 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel8.setBackground(new java.awt.Color(102, 255, 102));
 
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Tujuan Kerja");
 
         jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(153, 153, 153));
 
-        jLabel51.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel51.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(0, 0, 0));
         jLabel51.setText("Negara Tujuan");
 
-        negaraTujuan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        negaraTujuan.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         negaraTujuan.setForeground(new java.awt.Color(0, 0, 0));
         negaraTujuan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         negaraTujuan.setText("isiData");
 
-        jLabel53.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel53.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel53.setForeground(new java.awt.Color(0, 0, 0));
         jLabel53.setText("Keterampilan");
 
-        keterampilan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        keterampilan.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         keterampilan.setForeground(new java.awt.Color(0, 0, 0));
         keterampilan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         keterampilan.setText("Keterampilan");
@@ -1565,7 +1570,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
 
         jPanel9.setBackground(new java.awt.Color(102, 255, 102));
 
-        pernyataan.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        pernyataan.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         pernyataan.setForeground(new java.awt.Color(0, 0, 0));
         pernyataan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         pernyataan.setText("Keterampilan");
@@ -1670,79 +1675,7 @@ public class data_diri_terdaftar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel hakkan;
     private javax.swing.JLabel hokian;
     private javax.swing.JLabel inggris;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel jumAnak;
     private javax.swing.JLabel jumLaki;
     private javax.swing.JLabel jumPere;

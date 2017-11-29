@@ -5,8 +5,8 @@ import com.epizy.mulialaksanasejahtera.Model.ahliWaris;
 import java.util.List;
 
 public interface ahliWarisDAO {
-    public void Save(ahliWaris ahliWaris);
-    public void Delete(Object object);
-    public List<ahliWaris> GetAll();
-    public List<ahliWaris> GetDataByOject(Object object);
+    void Save(ahliWaris ahliWaris);
+    void Delete(Object object);
+    List<ahliWaris> GetAll();
+    List<ahliWaris> GetDataByOject(Object object);
 }

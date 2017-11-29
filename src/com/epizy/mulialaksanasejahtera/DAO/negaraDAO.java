@@ -4,10 +4,12 @@ import com.epizy.mulialaksanasejahtera.Model.negara;
 
 import java.util.List;
 
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
 public interface negaraDAO {
-    public void Save(negara negara);
-    public void Update(negara negara);
-    public void Delete(Object object);
-    public List<negara> GetAll();
-    public List<negara> GetDataByOject(Object object);
+    void Save(negara negara);
+    void Update(negara negara);
+    void Delete(Object object);
+    List<negara> GetAll();
+    List<negara> GetDataByOject(Object object);
 }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)

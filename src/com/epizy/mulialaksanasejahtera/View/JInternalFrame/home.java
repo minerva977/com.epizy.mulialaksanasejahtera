@@ -10,6 +10,7 @@ import mv.lib.ProsesDB.GetDataFromTable;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.awt.*;
 
 //import mulia_laksana_sejatra_desktop.codeclass.MainCode;
 
@@ -17,14 +18,15 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author Wisnu_Putra_Dewa
  */
+@SuppressWarnings("ObjectEqualsNull")
 public class home extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form home
      */
     public static String par;
-    GetDataFromTable gdft=new GetDataFromTable();
-    controllerDataDiri controllerDataDiri = new controllerDataDiri(this);
+    final GetDataFromTable gdft=new GetDataFromTable();
+    final controllerDataDiri controllerDataDiri = new controllerDataDiri(this);
     public home() {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
@@ -53,22 +55,22 @@ public class home extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        JSeparator jSeparator1 = new JSeparator();
+        JPanel jPanel2 = new JPanel();
+        JLabel jLabel2 = new JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        JScrollPane jScrollPane1 = new JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        JButton jButton1 = new JButton();
 
         setBorder(null);
         setTitle("Home");
 
         jPanel1.setBackground(new java.awt.Color(63, 224, 43));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Data Pendaftar baru");
 
@@ -77,7 +79,7 @@ public class home extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", Font.BOLD, 14)); // NOI18N
         jLabel2.setText("Cari :");
 
         jTextField1.setText("jTextField1");
@@ -98,7 +100,7 @@ public class home extends javax.swing.JInternalFrame {
                 "null", "null", "null"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            final boolean[] canEdit = new boolean [] {
                 false, false, false
             };
 
@@ -117,11 +119,7 @@ public class home extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/icon/icons8-Refresh_25.png"))); // NOI18N
         jButton1.setText("Segarkan");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,8 +188,10 @@ public class home extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @SuppressWarnings("ObjectEqualsNull")
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         par=gdft.TakeDataOneRow(jTable1, evt, 0);
         if(par.equals(null)){
             JOptionPane.showMessageDialog(null, "Maaf tabel yang anda pilih kosong"
@@ -201,27 +201,24 @@ public class home extends javax.swing.JInternalFrame {
             //menampilkan frame user
             new com.epizy.mulialaksanasejahtera.View.JFrame.frameUser().setVisible(true);
         }
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         cari();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         clr();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables

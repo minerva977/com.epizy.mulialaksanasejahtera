@@ -1,5 +1,6 @@
 package com.epizy.mulialaksanasejahtera.Model;
 
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
 public class negara {
     private String id;
     private String Nama_Negara;
@@ -20,3 +21,4 @@ public class negara {
         Nama_Negara = nama_Negara;
     }
 }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)

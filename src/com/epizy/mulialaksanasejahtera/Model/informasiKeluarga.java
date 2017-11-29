@@ -1,7 +1,7 @@
 package com.epizy.mulialaksanasejahtera.Model;
 
 public class informasiKeluarga {
-    dataDiri dataDiri = new dataDiri();
+    final dataDiri dataDiri = new dataDiri();
     private String NoRegistrasi = dataDiri.getNoRegistrasi();
     private String NamaBapak;
     private String KerjaBapak;
@@ -75,9 +75,11 @@ public class informasiKeluarga {
         KerjaIbu = kerjaIbu;
     }
 
-    public String getTempatLahirIbu() {
-        return TempatLahirIbu;
-    }
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
+//    public String getTempatLahirIbu() {
+//        return TempatLahirIbu;
+//    }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
     public void setTempatLahirIbu(String tempatLahirIbu) {
         TempatLahirIbu = tempatLahirIbu;
@@ -145,5 +147,9 @@ public class informasiKeluarga {
 
     public void setAnakKe(String anakKe) {
         AnakKe = anakKe;
+    }
+
+    public String getTempatLahirIbu() {
+        return TempatLahirIbu;
     }
 }

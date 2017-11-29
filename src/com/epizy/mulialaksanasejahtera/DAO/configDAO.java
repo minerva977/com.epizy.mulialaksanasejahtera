@@ -6,12 +6,15 @@
 package com.epizy.mulialaksanasejahtera.DAO;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
  * @author Nier
  */
 public interface configDAO {
-    public void getImageFormWeb(String Name,JLabel jLabel);
-    public void SendEmail(String[] Object);
+    void getImageFormWeb(String Name, JLabel jLabel);
+    void SendEmail(String[] Object);
+    void setIcon (JFrame jFrame);
+    void setIcon (Frame frame);
 }

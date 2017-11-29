@@ -10,14 +10,16 @@ import java.util.List;
 public class controllerKemampuanBahasa {
     JFrame jFrame;
     JInternalFrame jInternalFrame;
-    kemampuanBahasaDAO kemampuanBahasaDAO;
-    List<kemampuanBahasa> kemampuanBahasaList;
+    final kemampuanBahasaDAO kemampuanBahasaDAO;
+    final List<kemampuanBahasa> kemampuanBahasaList;
 
-    public controllerKemampuanBahasa(JFrame jFrame) {
-        this.jFrame = jFrame;
-        kemampuanBahasaDAO = new kemampuanBahasaDAOImpl();
-        kemampuanBahasaList = kemampuanBahasaDAO.GetAll();
-    }
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
+//    public controllerKemampuanBahasa(JFrame jFrame) {
+//        this.jFrame = jFrame;
+//        kemampuanBahasaDAO = new kemampuanBahasaDAOImpl();
+//        kemampuanBahasaList = kemampuanBahasaDAO.GetAll();
+//    }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
     public controllerKemampuanBahasa(JInternalFrame jInternalFrame) {
         this.jInternalFrame = jInternalFrame;

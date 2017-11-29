@@ -10,6 +10,7 @@ import mv.lib.ProsesDB.GetDataFromTable;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
+import java.awt.*;
 
 /**
  *
@@ -21,7 +22,7 @@ public class interview extends javax.swing.JInternalFrame {
      * Creates new form interview
      */
     //MainCode mainC=new MainCode();
-    GetDataFromTable gdft=new GetDataFromTable();
+    final GetDataFromTable gdft=new GetDataFromTable();
     
     public static String parameter;
     public interview() {
@@ -55,20 +56,20 @@ public class interview extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        JPanel jPanel1 = new JPanel();
+        JPanel jPanel2 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        JScrollPane jScrollPane1 = new JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
+        JSeparator jSeparator5 = new JSeparator();
+        JLabel jLabel2 = new JLabel();
+        JSeparator jSeparator6 = new JSeparator();
+        JLabel jLabel3 = new JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JSeparator jSeparator7 = new JSeparator();
+        JButton jButton1 = new JButton();
+        JButton jButton2 = new JButton();
 
         setBorder(null);
 
@@ -76,7 +77,7 @@ public class interview extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", Font.BOLD, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Pilih Nomer Registrasi Calon :");
 
@@ -92,7 +93,7 @@ public class interview extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
+            final boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
 
@@ -135,19 +136,11 @@ public class interview extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/icon/icons8-Next_25.png"))); // NOI18N
         jButton1.setText("Mulai Interview");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/epizy/mulialaksanasejahtera/Icon/icons8-Refresh_25.png"))); // NOI18N
         jButton2.setText("Segarkan");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -236,16 +229,21 @@ public class interview extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         jTextField2.setText(gdft.TakeDataOneRow(jTable1, evt, 0));
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         src();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         try {
             parameter = jTextField2.getText();
         } catch (Exception e) {
@@ -267,26 +265,17 @@ public class interview extends javax.swing.JInternalFrame {
             bahasa_keluarga.setVisible(true);
             this.setVisible(false);
         }
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         clr();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

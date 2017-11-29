@@ -5,8 +5,8 @@ import com.epizy.mulialaksanasejahtera.Model.fisik;
 import java.util.List;
 
 public interface fisikDAO {
-    public void Save(fisik fisik);
-    public void Delete(Object object);
-    public List<fisik> GetAll();
-    public List<fisik> GetDataByOject(Object object);
+    void Save(fisik fisik);
+    // --Commented out by Inspection (25/11/2017 12.44.33 PM):void Delete(Object object);
+    List<fisik> GetAll();
+    // --Commented out by Inspection (25/11/2017 12.44.33 PM):List<fisik> GetDataByOject(Object object);
 }

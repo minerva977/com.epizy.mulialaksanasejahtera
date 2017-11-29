@@ -8,9 +8,10 @@ import com.epizy.mulialaksanasejahtera.TabelModel.tabelModelAkun;
 import javax.swing.*;
 import java.util.List;
 
+ //--Commented out by Inspection START (25/11/2017 12.44.33 PM):
 public class controllerAkun {
-    JFrame jFrame;
-    akunDAO akunDAO;
+    final JFrame jFrame;
+    final akunDAO akunDAO;
     List<akun> akunList;
 
     public controllerAkun(JFrame jFrame) {
@@ -94,3 +95,4 @@ public class controllerAkun {
         }
     }
 }
+ //--Commented out by Inspection STOP (25/11/2017 12.44.33 PM)

@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class tabelModelAhliWaris extends AbstractTableModel {
-    List<ahliWaris> ahliWarisList;
+    final List<ahliWaris> ahliWarisList;
 
     public tabelModelAhliWaris(List<ahliWaris> warisList) {
         this.ahliWarisList = warisList;

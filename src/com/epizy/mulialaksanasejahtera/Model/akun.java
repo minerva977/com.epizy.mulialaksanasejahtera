@@ -1,7 +1,8 @@
 package com.epizy.mulialaksanasejahtera.Model;
 
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
 public class akun {
-    private dataDiri dataDiri = new dataDiri();
+    private final dataDiri dataDiri = new dataDiri();
     private String NoRegistrasi = dataDiri.getNoRegistrasi();
     private String Username;
     private String Password;
@@ -30,3 +31,4 @@ public class akun {
         Password = password;
     }
 }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)

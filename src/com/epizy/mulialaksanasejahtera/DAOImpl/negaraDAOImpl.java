@@ -11,13 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+ //--Commented out by Inspection START (25/11/2017 12.44.33 PM):
 public class negaraDAOImpl implements negaraDAO {
-    private final String insert = "INSERT INTO `negara`(`id`, `nama_negara`) VALUES (?,?)";
-    private final String update = "UPDATE `negara` SET `nama_negara`=? WHERE `id`=?";
-    private final String delete = "DELETE FROM `negara` WHERE `id`=?";
-    private final String select = "SELECT * FROM `negara`";
-    private final String selectWhere = "SELECT * FROM `negara` WHERE `id`=? OR `nama_negara`=?";
-    private Connection connection;
+    private final Connection connection;
 
     public negaraDAOImpl(){
         connection = dataBaseConncetionFactory.getConnection();
@@ -26,6 +22,7 @@ public class negaraDAOImpl implements negaraDAO {
     public void Save(negara negara) {
         PreparedStatement preparedStatement = null;
         try {
+            String insert = "INSERT INTO `negara`(`id`, `nama_negara`) VALUES (?,?)";
             preparedStatement = connection.prepareStatement(insert);
             preparedStatement.setString(1,negara.getId());
             preparedStatement.setString(2,negara.getNama_Negara());
@@ -36,6 +33,7 @@ public class negaraDAOImpl implements negaraDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -48,6 +46,7 @@ public class negaraDAOImpl implements negaraDAO {
     public void Update(negara negara) {
         PreparedStatement preparedStatement = null;
         try {
+            String update = "UPDATE `negara` SET `nama_negara`=? WHERE `id`=?";
             preparedStatement = connection.prepareStatement(update);
             preparedStatement.setString(1,negara.getId());
             preparedStatement.setString(2,negara.getNama_Negara());
@@ -58,6 +57,7 @@ public class negaraDAOImpl implements negaraDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -70,6 +70,7 @@ public class negaraDAOImpl implements negaraDAO {
     public void Delete(Object object) {
         PreparedStatement preparedStatement = null;
         try {
+            String delete = "DELETE FROM `negara` WHERE `id`=?";
             preparedStatement = connection.prepareStatement(delete);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.executeUpdate();
@@ -79,6 +80,7 @@ public class negaraDAOImpl implements negaraDAO {
         finally {
             if (connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -92,6 +94,7 @@ public class negaraDAOImpl implements negaraDAO {
         List<negara> negaraList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String select = "SELECT * FROM `negara`";
             preparedStatement = connection.prepareStatement(select);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -106,6 +109,7 @@ public class negaraDAOImpl implements negaraDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -120,6 +124,7 @@ public class negaraDAOImpl implements negaraDAO {
         List<negara> negaraList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String selectWhere = "SELECT * FROM `negara` WHERE `id`=? OR `nama_negara`=?";
             preparedStatement = connection.prepareStatement(selectWhere);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.setString(2, String.valueOf(object));
@@ -136,6 +141,7 @@ public class negaraDAOImpl implements negaraDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -145,3 +151,4 @@ public class negaraDAOImpl implements negaraDAO {
         return  negaraList;
     }
 }
+ //--Commented out by Inspection STOP (25/11/2017 12.44.33 PM)

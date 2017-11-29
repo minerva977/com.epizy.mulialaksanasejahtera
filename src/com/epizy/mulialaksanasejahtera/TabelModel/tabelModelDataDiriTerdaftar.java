@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
 public class tabelModelDataDiriTerdaftar extends AbstractTableModel {
-    List<dataDiriTerdaftar> dataDiriList;
+    final List<dataDiriTerdaftar> dataDiriList;
 
     public tabelModelDataDiriTerdaftar(List<dataDiriTerdaftar> dataDiris) {
         this.dataDiriList = dataDiris;

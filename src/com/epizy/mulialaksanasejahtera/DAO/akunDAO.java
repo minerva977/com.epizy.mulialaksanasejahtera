@@ -5,9 +5,9 @@ import com.epizy.mulialaksanasejahtera.Model.akun;
 import java.util.List;
 
 public interface akunDAO {
-    public void Save(akun akun);
-    public void Update(akun akun);
-    public void Delete(Object object);
-    public List<akun> GetAll();
-    public List<akun> GetDataByOject(Object object);
+    void Save(akun akun);
+    void Update(akun akun);
+    void Delete(Object object);
+    List<akun> GetAll();
+    List<akun> GetDataByOject(Object object);
 }

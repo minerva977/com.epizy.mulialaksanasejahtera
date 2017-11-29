@@ -12,13 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ahliWarisDAOImpl implements ahliWarisDAO {
-    private final String insert = "INSERT INTO `ahli_waris`(`no_reg`, `nama_alhi`, `hubungan`) VALUES (?,?,?)";
-    private final String update = "UPDATE `ahli_waris` SET `nama_alhi`=?,`hubungan`=? WHERE `no_reg`=?";
-    private final String delete = "DELETE FROM `ahli_waris` WHERE `no_reg`=?";
-    private final String select = "SELECT * FROM `ahli_waris`";
-    private final String selectWhere = "SELECT * FROM `ahli_waris` " +
-            "WHERE `no_reg` LIKE ? OR `nama_alhi` LIKE ? OR `hubungan` LIKE ?";
-    private Connection connection;
+    private final Connection connection;
     public  ahliWarisDAOImpl(){
         connection = dataBaseConncetionFactory.getConnection();
     }
@@ -26,6 +20,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
     public void Save(ahliWaris ahliWaris) {
         PreparedStatement preparedStatement = null;
         try {
+            String insert = "INSERT INTO `ahli_waris`(`no_reg`, `nama_alhi`, `hubungan`) VALUES (?,?,?)";
             preparedStatement = connection.prepareStatement(insert);
             preparedStatement.setString(1,ahliWaris.getNoRegistrasi());
             preparedStatement.setString(2,ahliWaris.getNama());
@@ -33,6 +28,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
             preparedStatement.executeUpdate();
         }catch (SQLException e) {
             try {
+                String update = "UPDATE `ahli_waris` SET `nama_alhi`=?,`hubungan`=? WHERE `no_reg`=?";
                 preparedStatement = connection.prepareStatement(update);
                 preparedStatement.setString(1,ahliWaris.getNama());
                 preparedStatement.setString(2,ahliWaris.getHubungan());
@@ -46,6 +42,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -57,6 +54,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
     public void Delete(Object object) {
         PreparedStatement preparedStatement = null;
         try {
+            String delete = "DELETE FROM `ahli_waris` WHERE `no_reg`=?";
             preparedStatement = connection.prepareStatement(delete);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.executeUpdate();
@@ -66,6 +64,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -79,6 +78,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         List<ahliWaris> ahliWarisList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String select = "SELECT * FROM `ahli_waris`";
             preparedStatement = connection.prepareStatement(select);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -94,6 +94,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -108,6 +109,8 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         List<ahliWaris> ahliWarisList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String selectWhere = "SELECT * FROM `ahli_waris` " +
+                    "WHERE `no_reg` LIKE ? OR `nama_alhi` LIKE ? OR `hubungan` LIKE ?";
             preparedStatement = connection.prepareStatement(selectWhere);
             preparedStatement.setString(1, String.valueOf(object));
             preparedStatement.setString(2, String.valueOf(object));
@@ -126,6 +129,7 @@ public class ahliWarisDAOImpl implements ahliWarisDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();

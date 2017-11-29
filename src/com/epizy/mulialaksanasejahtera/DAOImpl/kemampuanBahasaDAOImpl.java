@@ -12,18 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
-    private final String insert = "INSERT INTO " +
-            "`kemampuan_bahasa`(`no_reg`, `bhs_inggris`, `bhs_mandarin`, `bhs_hokian`, `bhs_hokka`, `bhs_lain`) " +
-            "VALUES " +
-            "(?,?,?,?,?,?)";
-    private final String update = "UPDATE `kemampuan_bahasa` " +
-            "SET `bhs_inggris`=?,`bhs_mandarin`=?,`bhs_hokian`=?,`bhs_hokka`=?,`bhs_lain`=? " +
-            "WHERE " +
-            "`no_reg`=?";
-    private final String delete = "DELETE FROM `kemampuan_bahasa` WHERE `no_reg`=?";
-    private final String select = "SELECT * FROM `kemampuan_bahasa`";
-    private final String selectWhere = "SELECT * FROM `akun` WHERE `no_reg` LIKE ? OR `username` LIKE ? OR `username` LIKE ?";
-    private Connection connection;
+    private final Connection connection;
 
     public kemampuanBahasaDAOImpl() {
         connection = dataBaseConncetionFactory.getConnection();
@@ -32,6 +21,10 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
     public void Save(kemampuanBahasa kemampuanBahasa) {
         PreparedStatement preparedStatement = null;
         try {
+            String insert = "INSERT INTO " +
+                    "`kemampuan_bahasa`(`no_reg`, `bhs_inggris`, `bhs_mandarin`, `bhs_hokian`, `bhs_hokka`, `bhs_lain`) " +
+                    "VALUES " +
+                    "(?,?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(insert);
             preparedStatement.setString(1,kemampuanBahasa.getNoRegistrasi());
             preparedStatement.setString(2,kemampuanBahasa.getInggris());
@@ -42,6 +35,10 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
             preparedStatement.executeUpdate();
         }catch (SQLException e) {
             try {
+                String update = "UPDATE `kemampuan_bahasa` " +
+                        "SET `bhs_inggris`=?,`bhs_mandarin`=?,`bhs_hokian`=?,`bhs_hokka`=?,`bhs_lain`=? " +
+                        "WHERE " +
+                        "`no_reg`=?";
                 preparedStatement = connection.prepareStatement(update);
                 preparedStatement.setString(1,kemampuanBahasa.getInggris());
                 preparedStatement.setString(2,kemampuanBahasa.getMandarin());
@@ -58,27 +55,7 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
         finally {
             if (connection != null) {
                 try {
-                    preparedStatement.close();
-                }catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override
-    public void Delete(Object object) {
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(delete);
-            preparedStatement.setString(1, String.valueOf(object));
-            preparedStatement.executeUpdate();
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if (connection != null) {
-                try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e) {
                     e.printStackTrace();
@@ -92,6 +69,7 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
         List<kemampuanBahasa> kemampuanBahasaList = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         try {
+            String select = "SELECT * FROM `kemampuan_bahasa`";
             preparedStatement = connection.prepareStatement(select);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -110,6 +88,7 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
         finally {
             if(connection != null) {
                 try {
+                    assert preparedStatement != null;
                     preparedStatement.close();
                 }catch (SQLException e){
                     e.printStackTrace();
@@ -119,41 +98,4 @@ public class kemampuanBahasaDAOImpl implements kemampuanBahasaDAO {
         return  kemampuanBahasaList;
     }
 
-    @Override
-    public List<kemampuanBahasa> GetDataByOject(Object object) {
-        List<kemampuanBahasa> kemampuanBahasaList = new ArrayList<>();
-        PreparedStatement preparedStatement = null;
-        try {
-            preparedStatement = connection.prepareStatement(selectWhere);
-            preparedStatement.setString(1, String.valueOf(object));
-            preparedStatement.setString(2, String.valueOf(object));
-            preparedStatement.setString(3, String.valueOf(object));
-            preparedStatement.setString(4, String.valueOf(object));
-            preparedStatement.setString(5, String.valueOf(object));
-            preparedStatement.setString(6, String.valueOf(object));
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                kemampuanBahasa kemampuanBahasa = new kemampuanBahasa();
-                kemampuanBahasa.setNoRegistrasi(resultSet.getString(1));
-                kemampuanBahasa.setInggris(resultSet.getString(2));
-                kemampuanBahasa.setMandarin(resultSet.getString(3));
-                kemampuanBahasa.setHokian(resultSet.getString(4));
-                kemampuanBahasa.setHokka(resultSet.getString(5));
-                kemampuanBahasa.setLain(resultSet.getString(6));
-                kemampuanBahasaList.add(kemampuanBahasa);
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-        }
-        finally {
-            if(connection != null) {
-                try {
-                    preparedStatement.close();
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-        return  kemampuanBahasaList;
-    }
 }

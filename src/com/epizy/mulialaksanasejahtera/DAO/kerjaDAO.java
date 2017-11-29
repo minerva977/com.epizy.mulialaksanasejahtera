@@ -5,8 +5,8 @@ import com.epizy.mulialaksanasejahtera.Model.kerja;
 import java.util.List;
 
 public interface kerjaDAO {
-    public void Save(kerja kerja);
-    public void Delete(Object object);
-    public List<kerja> GetAll();
-    public List<kerja> GetDataByOject(Object object);
+    void Save(kerja kerja);
+    // --Commented out by Inspection (25/11/2017 12.44.33 PM):void Delete(Object object);
+    List<kerja> GetAll();
+    // --Commented out by Inspection (25/11/2017 12.44.33 PM):List<kerja> GetDataByOject(Object object);
 }

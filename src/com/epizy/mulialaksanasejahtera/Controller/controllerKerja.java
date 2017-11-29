@@ -10,14 +10,16 @@ import java.util.List;
 public class controllerKerja {
     JFrame jFrame;
     JInternalFrame jInternalFrame;
-    kerjaDAO kerjaDAO;
-    List<kerja> kerjaList;
+    final kerjaDAO kerjaDAO;
+    final List<kerja> kerjaList;
 
-    public controllerKerja (JFrame jFrame) {
-        this.jFrame = jFrame;
-        kerjaDAO = new kerjaDAOImpl();
-        kerjaList = kerjaDAO.GetAll();
-    }
+// --Commented out by Inspection START (25/11/2017 12.44.33 PM):
+//    public controllerKerja (JFrame jFrame) {
+//        this.jFrame = jFrame;
+//        kerjaDAO = new kerjaDAOImpl();
+//        kerjaList = kerjaDAO.GetAll();
+//    }
+// --Commented out by Inspection STOP (25/11/2017 12.44.33 PM)
 
     public controllerKerja (JInternalFrame jInternalFrame) {
         this.jInternalFrame = jInternalFrame;
